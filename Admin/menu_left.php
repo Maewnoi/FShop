@@ -1,0 +1,32 @@
+<div class="list-group">
+<!-- ถ้าคลิก page ที่เกี่ยวข้องกับเมนูไหน เมนูนั้นจะเป็นตัวหนังสือสีฟ้า list-group-item -->
+<?php  if($_GET['page'] == 'admin' || $_GET['page'] == 'admin_form_add' || $_GET['page'] == 'admin_form_edit'){?>
+	<a href="index.php?page=admin" class="list-group-item list-group-item">จัดการผู้ดูแลระบบ</a>
+<?php  }else{ ?>
+<!-- ถ้าไม่ได้คลิกจะเป็นสีดำปกติ list-group-item-action -->
+	<a href="index.php?page=admin" class="list-group-item list-group-item-action">จัดการผู้ดูแลระบบ</a>
+<?php }
+
+//เมนูจัดการสมาชิก
+if($_GET['page'] == 'member' || $_GET['page'] == 'member_form_add' || $_GET['page'] == 'member_form_edit'){?>
+	<a href="index.php?page=member" class="list-group-item list-group-item">จัดการสมาชิก</a>
+<?php }else{ ?>
+	<a href="index.php?page=member" class="list-group-item list-group-item-action">จัดการสมาชิก</a>
+<?php }
+
+//จัดการประเภทสินค้า
+if($_GET['page'] == 'type' || $_GET['page'] == 'type_form_add' || $_GET['page'] == 'type_form_edit'){?>
+		<a href="index.php?page=type" class="list-group-item list-group-item">จัดการประเภทสินค้า</a>
+<?php }else{ ?>
+	<a href="index.php?page=type" class="list-group-item list-group-item-action">จัดการประเภทสินค้า</a>
+<?php } ?>
+
+	<a href="product.php" class="list-group-item list-group-item-action">จัดการสินค้า</a>
+	<a href="Buy.php" class="list-group-item list-group-item-action">จัดการสั่งซื้อวัตถุดิบ</a>
+	<a href="order.php" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
+	<a href="#" class="list-group-item list-group-item-action">จัดการขาย</a>
+	<a href="withdraw.php" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>
+	<a href="#" class="list-group-item list-group-item-action">จัดการจัดส่งสินค้า</a>
+	<a href="expenses.php" class="list-group-item list-group-item-action">จัดการรายจ่าย</a>
+	<a href="../logout.php" class="list-group-item list-group-item-action">ออกจากระบบ</a>
+</div>
