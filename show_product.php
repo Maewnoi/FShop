@@ -9,7 +9,7 @@
   <div class=" col-md-4" style=" margin-bottom: 10px;"style=" margin-top:10px;margin-right: 5px;">
     <div class="card text-info bg-light " style="width: 250px;height: 450px;" >
       <div class="card-header">
-        <img class="card-img-top" src="back\p_img\/<?php echo$row_pro['p_img']; ?>" height="250px" width="auto" alt="Card image cap">
+        <img class="card-img-top" src=".\Admin\p_img\/<?php echo$row_pro['p_img']; ?>" height="250px" width="auto" alt="Card image cap">
       </div>
       <div class="card-body">
         <h6 class="card-title"><?php echo$row_pro['p_name'] ?></h6>

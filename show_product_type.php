@@ -14,7 +14,7 @@ ORDER BY p.p_id ASC";
 <?php foreach ($result_pro as $row_pro) {?>
   
 <div class="card text-white bg-info mb-3" style="width: 18rem; margin-top:10px;">
-  <img class="card-img-top" src="back\p_img\/<?php echo$row_pro['p_img']; ?>" height="250px" width="auto" alt="Card image cap">
+  <img class="card-img-top" src=".\Admin\p_img\/<?php echo$row_pro['p_img']; ?>" height="250px" width="auto" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><?php echo$row_pro['p_name'] ?></h5>
     <p class="card-text">
