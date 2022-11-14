@@ -19,6 +19,8 @@
             $q=(isset($_GET['q'])?$_GET['q']:'') ;
               if($act=='showbytype'){
                   include('show_product_type.php');
+              }elseif($act=='productdetail'){
+                include('product_detail.php');
               }elseif($q!=''){ 
                 include('show_product_q.php');
               }else{

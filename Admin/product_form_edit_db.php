@@ -18,7 +18,7 @@ $p_price = mysqli_real_escape_string($con,$_POST["p_price"]);
 $p_qty = mysqli_real_escape_string($con,$_POST["p_qty"]);
 $p_unit = mysqli_real_escape_string($con,$_POST["p_unit"]);
 	$p_img = (isset($_POST['p_img']) ? $_POST['p_img'] : '');
-	$img2 = $_POST['img2'];
+	$img2 = $_POST['p_img2'];
 	$upload=$_FILES['p_img']['name'];
 	if($upload !='') { 
  
@@ -59,7 +59,7 @@ mysqli_close($con); //ปิดการเชื่อมต่อ database
 	if($result){
 	echo "<script type='text/javascript'>";
 	echo "alert('Update Succesfuly');";
-	echo "window.location = 'product.php'; ";
+	echo "window.location = 'index.php?page=product'; ";
 	echo "</script>";
 	}
 	else{

@@ -1,3 +1,4 @@
+<br>
 <?php
 $query2 = "SELECT * FROM tbl_type ORDER BY type_id asc";
 $result2 = mysqli_query($con, $query2);
@@ -30,20 +31,15 @@ $result2 = mysqli_query($con, $query2);
  ?>
 
 <form action="product_form_add_db.php" method="post" class="form-horizontal" enctype="multipart/form-data">
-  <div class="form-group">
-  <div class="form-group">
-    <div class="col-sm-2 control-label">
-      ชื่อสินค้า :
-    </div>
+  <div class="form-group row">
+    <div class="col-sm-2 control-label"> ชื่อสินค้า : </div>
     <div class="col-sm-3">
       <input type="text" name="p_name" required class="form-control">
     </div>
   </div>
 
-   <div class="form-group">
-    <div class="col-sm-2 control-label">
-      ประเภทสินค้า :
-    </div>
+   <div class="form-group row">
+    <div class="col-sm-2 control-label"> ประเภทสินค้า : </div>
     <div class="col-sm-3">
         <select name="type_id" class="form-control" required>
               <option value="">เลือกประเภทสินค้า</option>
@@ -57,36 +53,29 @@ $result2 = mysqli_query($con, $query2);
   </div>
 
 
-  <div class="form-group">
-    <div class="col-sm-2 control-label">
-      รายละเอียด :
-    </div>
-    <div class="col-sm-3">
-    <textarea name="p_detail" cols="60"></textarea>
+  <div class="form-group row">
+    <div class="col-sm-2 control-label"> รายละเอียด : </div>
+    <div class="col-sm-4">
+    <textarea name="p_detail" rows="5" class="form-control"></textarea>
     </div>
   </div>
-   <div class="form-group">
-    <div class="col-sm-2 control-label">
-      ราคา :
-    </div>
+   <div class="form-group row">
+    <div class="col-sm-2 control-label"> ราคา : </div>
     <div class="col-sm-2">
       <input type="number" name="p_price" required class="form-control">
     </div>
   </div>
-  <div class="form-group">
-    <div class="col-sm-2 control-label">
-      จำนวน :
-    </div>
+  <div class="form-group row">
+    <div class="col-sm-2 control-label"> จำนวน : </div>
     <div class="col-sm-2">
       <input type="number" name="p_qty" required class="form-control">
     </div>
+  </div>
 
-  <div class="form-group">
-    <div class="col-sm-2 control-label">
-      หน่วย :
-    </div>
-    <div class="col-sm-1">
-    <select name="p_unit" id="p_unit" required>
+  <div class="form-group row">
+    <div class="col-sm-2 control-label"> หน่วย : </div>
+    <div class="col-sm-2">
+    <select name="p_unit" id="p_unit" required  class="form-control">
               <option value="">กรุณาเลือก</option>
               <option value="ดอก">ดอก</option>
               <option value="ช่อ">ช่อ</option>
@@ -99,10 +88,8 @@ $result2 = mysqli_query($con, $query2);
       </select>
     </div>
   </div>
-  <div class="form-group">
-    <div class="col-sm-2 control-label">
-      รูปภาพสินค้า :
-    </div>
+  <div class="form-group row">
+    <div class="col-sm-2 control-label"> รูปภาพสินค้า : </div>
     <div class="col-sm-4">
       <input type="file" name="p_img" required class="form-control" accept="image/*" onchange="readURL(this);"/>
       <img id="blah" src="#" alt="" width="250" class="img-rounded" style="margin-top: 10px;">
@@ -113,7 +100,7 @@ $result2 = mysqli_query($con, $query2);
     </div>
     <div class="col-sm-3">
       <button type="submit" class="btn btn-success">เพิ่มข้อมูล</button>
-      <a href="durable.php" class="btn btn-danger">ยกเลิก</a>
+      <a href="index.php?page=product" class="btn btn-danger">ยกเลิก</a>
     </div>
   </div>
 </form>

@@ -1,35 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-<?php include('h.php');
-error_reporting( error_reporting() & ~E_NOTICE );
-?>
-<head>
-  <body>
-    <div class="container">
-  <?php include('navbar.php');?>
-  <p></p>
-    <div class="row">
-      <div class="col-md-3"> 
-       <?php include('menu_left.php');?>
-    </div>
-    <div class="col-md-9"> 
-      <a href="product.php?act=add" class="btn-info btn-sm">เพิ่ม </a>
-      <p></p>
+<br>
+      <a href="index.php?page=product_form_add" class="btn-info btn-lg">เพิ่มสินค้า </a>
+      <hr>
+<?php 
+ if(@$_GET['do']=='success'){
+    echo '<script type="text/javascript">
+          swal("", "ทำรายการสำเร็จ !!", "success");
+          </script>';
+    echo '<meta http-equiv="refresh" content="1;url=product.php" />';
 
-    <?php
-          $act = $_GET['act'];
-          if($act == 'add'){
-          include('product_form_add.php');
-          }elseif ($act == 'edit') {
-          include('product_form_edit.php');
-          }
-          else {
-          include('product_list.php');
-          }
-    ?>
-    </div>
-    </div>
-  </div>
-  </body>
-</html>
+  }else if(@$_GET['do']=='finish'){
+    echo '<script type="text/javascript">
+          swal("", "แก้ไขสำเร็จ !!", "success");
+          </script>';
+    echo '<meta http-equiv="refresh" content="1;url=product.php" />';
+  }
+
+$query = "SELECT * FROM tbl_product as p
+INNER JOIN tbl_type as t ON p.type_id = t.type_id
+ORDER BY t.type_id ASC ";
+$i = 1;
+$result = mysqli_query($con, $query);
+echo ' <table id="example1" class="table table-bordered table-striped">';
+  echo "<thead>";
+    echo "<tr class=''>
+      <th width='3%'  class='hidden-xs'>ID</th>
+      <th width='20%' class='hidden-xs'>รูป</th>
+       <th width='15%'>ชื่อสินค้า</th>
+       <th width='20%' class='hidden-xs'>รายละเอียดสินค้า</th>
+      <th width='15%'>ราคาสินค้า</th>
+      <th width='5%'>แก้ไข</th>
+      <th width=5%'>ลบ</th>
+    </tr>";
+  echo "</thead>";
+  while($row = mysqli_fetch_array($result)) {
+  echo "<tr>";
+    echo "<td  class='hidden-xs'>" .$i.  "</td> ";
+    echo "<td class='hidden-xs'><img src='./p_img/".$row['p_img']."' width='100%'>"."</td>";
+    echo "<td> ชื่อ: " .$row["p_name"] .
+    "<br>ประเภท: <font color='blue'>".$row["type_name"] ."</font>".
+      "</td class='hidden-xs'> ";
+    echo "<td class='hidden-xs'>" .$row["p_detail"] ."</td> ";
+       echo "<td> ราคา " .$row["p_price"] ." บาท".    "<br>จำนวน ".$row["p_qty"]." ".$row["p_unit"].
+      "</td> ";
+      "</td> ";
+       
+  
+                      //แก้ไขข้อมูล
+                      echo "<td><a href='index.php?page=product_form_edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";  
+                      //ลบข้อมูล
+                      echo "<td><a href='product_del_db.php?ID=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\" class='btn btn-danger btn-xs'>ลบ</a></td> ";
+                    echo "</tr>";
+                    $i++; }
+                  echo "</table>";
+echo "</table>";
+mysqli_close($con);
+?>

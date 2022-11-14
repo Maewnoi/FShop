@@ -19,10 +19,22 @@ if($_GET['page'] == 'type' || $_GET['page'] == 'type_form_add' || $_GET['page'] 
 		<a href="index.php?page=type" class="list-group-item list-group-item">จัดการประเภทสินค้า</a>
 <?php }else{ ?>
 	<a href="index.php?page=type" class="list-group-item list-group-item-action">จัดการประเภทสินค้า</a>
+<?php } 
+
+//จัดการสินค้า
+if($_GET['page'] == 'product' || $_GET['page'] == 'product_form_add' || $_GET['page'] == 'product_form_edit'){?>
+		<a href="index.php?page=product" class="list-group-item list-group-item">จัดการสินค้า</a>
+<?php }else{ ?>
+	<a href="index.php?page=product" class="list-group-item list-group-item-action">จัดการสินค้า</a>
+<?php } 
+
+//จัดการสั่งซื้อวัตถุดิบ
+if($_GET['page'] == 'Buy' || $_GET['page'] == 'Buy_form_add' || $_GET['page'] == 'Buy_form_edit'){?>
+		<a href="index.php?page=Buy" class="list-group-item list-group-item">จัดการสั่งซื้อวัตถุดิบ</a>
+<?php }else{ ?>
+	<a href="index.php?page=Buy" class="list-group-item list-group-item-action">จัดการสั่งซื้อวัตถุดิบ</a>
 <?php } ?>
 
-	<a href="product.php" class="list-group-item list-group-item-action">จัดการสินค้า</a>
-	<a href="Buy.php" class="list-group-item list-group-item-action">จัดการสั่งซื้อวัตถุดิบ</a>
 	<a href="order.php" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
 	<a href="#" class="list-group-item list-group-item-action">จัดการขาย</a>
 	<a href="withdraw.php" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>

@@ -44,14 +44,18 @@
           include('type_form_add.php');
         }else if($_GET['page'] == 'type_form_edit'){
           include('type_form_edit.php');
-        }else if($_GET['page'] == ''){
-          include('.php');
-        }else if($_GET['page'] == ''){
-          include('.php');
-        }else if($_GET['page'] == ''){
-          include('.php');
-        }else if($_GET['page'] == ''){
-          include('.php');
+        }else if($_GET['page'] == 'product'){
+          include('product.php');
+        }else if($_GET['page'] == 'product_form_edit'){
+          include('product_form_edit.php');
+        }else if($_GET['page'] == 'product_form_add'){
+          include('product_form_add.php');
+        }else if($_GET['page'] == 'Buy'){
+          include('Buy.php');
+        }else if($_GET['page'] == 'Buy_form_add'){
+          include('Buy_form_add.php');
+        }else if($_GET['page'] == 'Buy_form_edit'){
+          include('Buy_form_edit.php');
         }
         
         else{

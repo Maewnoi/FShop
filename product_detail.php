@@ -1,35 +1,6 @@
 <?php
-include('h.php');
-include('back/condb.php');
 $p_id = $_GET["id"];
 ?>
-<!DOCTYPE html>
-<head>
-  <title>ระบบร้านค้าออนไลน์</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
-     <style>
-        div.polaroid {
-          width: 80%;
-          background-color: white;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          margin-bottom: 25px;
-        }
-
-        div.container_di {
-          text-align: center;
-          padding: 10px 20px;
-        }
-      </style>
-</head>
-<body>
-  
-<div class="container">
-<div class="carousel-item active"><img  src="picture\Y1.png" alt="300" width="1112" height="275" class="d-block w-100,"></div>
-<?php include('navber.php');?>
 
     <div class="row">
       <?php
@@ -45,7 +16,7 @@ $p_id = $_GET["id"];
           <div class="row">
             <div class="col-md-6">
               <div class="polaroid">
-                <?php echo"<img src='back/p_img/".$row['p_img']."'width='100%'>";?>
+                <?php echo"<img src='./Admin/p_img/".$row['p_img']."'width='100%'>";?>
                   <div class="container_di">
                     <p><?php echo $row["p_name"];?></p>
                   </div>
@@ -65,10 +36,8 @@ $p_id = $_GET["id"];
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</body>
-</html>
+</div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>

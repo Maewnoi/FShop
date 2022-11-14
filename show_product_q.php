@@ -19,7 +19,7 @@ ORDER BY p.p_id ASC";
     <p class="card-text">
         ประเภทสินค้า:<?php echo$row_pro['type_name'];?>
     </p>
-    <a href="product_detail.php?id=<?php echo $row_pro['p_id'];?>" class="btn btn-primary">รายละเอียด</a>
+    <a href="index.php?act=productdetail&type_id=<?php echo $type_id;?>&id=<?php echo $row_pro['p_id'];?>" class="btn btn-primary">รายละเอียด</a>
   </div>
   </div>
   <?php }?>

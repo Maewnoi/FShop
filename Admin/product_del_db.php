@@ -15,7 +15,7 @@ $result = mysqli_query($con, $sql);
   if($result){
   echo "<script type='text/javascript'>";
   echo "alert('Delete Succesfuly');";
-  echo "window.location = 'product.php'; ";
+  echo "window.location = 'index.php?page=product'; ";
   echo "</script>";
   }
   else{
