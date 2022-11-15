@@ -56,6 +56,12 @@
           include('Buy_form_add.php');
         }else if($_GET['page'] == 'Buy_form_edit'){
           include('Buy_form_edit.php');
+        }else if($_GET['page'] == 'order'){
+          include('order.php');
+        }else if($_GET['page'] == 'order_form_add'){
+          include('order_form_add.php');
+        }else if($_GET['page'] == 'order_form_edit'){
+          include('order_form_edit.php');
         }
         
         else{

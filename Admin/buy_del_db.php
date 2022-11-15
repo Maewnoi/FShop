@@ -13,7 +13,7 @@ $result = mysqli_query($con, $sql);
   if($result){
   echo "<script type='text/javascript'>";
   echo "alert('Delete Succesfuly');";
-  echo "window.location = 'expenses.php'; ";
+  echo "window.location = 'index.php?page=Buy'; ";
   echo "</script>";
   }
   else{

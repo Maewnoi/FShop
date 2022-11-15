@@ -13,21 +13,24 @@ $sql ="INSERT INTO tbl_buy
  
     VALUES 
  
-    ('$b_list', '$type_id', '$b_price','$b_QTY'.'$b_status')";
+    ('$b_list', '$type_id', '$b_price','$b_QTY','$b_status')";
     
-    $result = ("Error in query: $sql ");
+    $result = mysqli_query($con, $sql);
     mysqli_close($con);
-    
+
+
+  
     if($result){
       echo "<script>";
       echo "alert('เพิ่มข้อมูลเรียบร้อย');";
-      echo "window.location ='Buy.php'; ";
+      echo "window.location ='index.php?page=Buy'; ";
       echo "</script>";
     } else {
       
       echo "<script>";
       echo "alert('ERROR!');";
-      echo "window.location ='Buy.php'; ";
+      echo "window.location ='index.php?page=Buy'; ";
       echo "</script>";
     }
+    
 ?>

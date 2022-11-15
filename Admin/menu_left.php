@@ -33,6 +33,13 @@ if($_GET['page'] == 'Buy' || $_GET['page'] == 'Buy_form_add' || $_GET['page'] ==
 		<a href="index.php?page=Buy" class="list-group-item list-group-item">จัดการสั่งซื้อวัตถุดิบ</a>
 <?php }else{ ?>
 	<a href="index.php?page=Buy" class="list-group-item list-group-item-action">จัดการสั่งซื้อวัตถุดิบ</a>
+<?php } 
+
+//จัดการรับคำสั่งซื้อ
+if($_GET['page'] == 'order' || $_GET['page'] == 'order_form_add' || $_GET['page'] == 'order_form_edit'){?>
+		<a href="index.php?page=order" class="list-group-item list-group-item">จัดการรับคำสั่งซื้อ</a>
+<?php }else{ ?>
+	<a href="index.php?page=order" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
 <?php } ?>
 
 	<a href="order.php" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
