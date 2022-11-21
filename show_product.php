@@ -14,7 +14,7 @@
       <div class="card-body">
         <h6 class="card-title"><?php echo$row_pro['p_name'] ?></h6>
         <p > ประเภทสินค้า : <?php echo$row_pro['type_name'];?> </p>
-       <center><a href="product_detail.php?id=<?php echo $row_pro['p_id'];?>" class="btn btn-success">รายละเอียด</a></center>
+       <center><a href="index.php?act=productdetail&type_id=<?php echo $type_id;?>&id=<?php echo $row_pro['p_id'];?>" class="btn btn-primary">รายละเอียด</a></center>
       </div>
       </div>
   </div>
