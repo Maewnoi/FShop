@@ -62,6 +62,18 @@
           include('order_form_add.php');
         }else if($_GET['page'] == 'order_form_edit'){
           include('order_form_edit.php');
+        }else if($_GET['page'] == 'withdraw'){
+          include('withdraw.php');
+        }else if($_GET['page'] == 'withdraw_form_add'){
+          include('withdraw_form_add.php');
+        }else if($_GET['page'] == 'withdraw_form_edit'){
+          include('withdraw_form_edit.php');
+        }else if($_GET['page'] == 'expenses'){
+          include('expenses.php');
+        }else if($_GET['page'] == 'expenses_form_add'){
+          include('expenses_form_add.php');
+        }else if($_GET['page'] == 'expenses_form_edit'){
+          include('expenses_form_edit.php');
         }
         
         else{

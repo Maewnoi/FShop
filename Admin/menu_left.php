@@ -42,10 +42,22 @@ if($_GET['page'] == 'order' || $_GET['page'] == 'order_form_add' || $_GET['page'
 	<a href="index.php?page=order" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
 <?php } ?>
 
-	<a href="order.php" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
 	<a href="#" class="list-group-item list-group-item-action">จัดการขาย</a>
-	<a href="withdraw.php" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>
+<?php 
+//จัดการเบิกวัตถุดิบ
+if($_GET['page'] == 'withdraw' || $_GET['page'] == 'withdraw_form_add' || $_GET['page'] == 'withdraw_form_edit'){?>
+		<a href="index.php?page=withdraw" class="list-group-item list-group-item">จัดการเบิกวัตถุดิบ</a>
+<?php }else{ ?>
+	<a href="index.php?page=withdraw" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>
+<?php } ?>
+
 	<a href="#" class="list-group-item list-group-item-action">จัดการจัดส่งสินค้า</a>
-	<a href="expenses.php" class="list-group-item list-group-item-action">จัดการรายจ่าย</a>
+<?php 
+//จัดการรายจ่าย
+if($_GET['page'] == 'expenses' || $_GET['page'] == 'expenses_form_add' || $_GET['page'] == 'expenses_form_edit'){?>
+		<a href="index.php?page=expenses" class="list-group-item list-group-item">จัดการรายจ่าย</a>
+<?php }else{ ?>
+	<a href="index.php?page=expenses" class="list-group-item list-group-item-action">จัดการรายจ่าย</a>
+<?php } ?>
 	<a href="../logout.php" class="list-group-item list-group-item-action">ออกจากระบบ</a>
 </div>

@@ -16,12 +16,10 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
       e_list='$e_list', 
       e_time='$e_time', 
       e_pay='$e_pay',
-      e_note='$e_note',
-     
-      
+      e_note='$e_note'      
       WHERE e_id='$e_id' ";
  
-$result = mysqli_query($con, $sql) or //die ("Error in query: $sql " . mysqli_error());
+$result = mysqli_query($con, $sql); //or die ("Error in query: $sql " . mysqli_error());
  
 mysqli_close($con); //ปิดการเชื่อมต่อ database 
  
@@ -30,7 +28,7 @@ mysqli_close($con); //ปิดการเชื่อมต่อ database
   if($result){
   echo "<script type='text/javascript'>";
   echo "alert('Update Succesfuly');";
-  echo "window.location = 'expenses.php'; ";
+  echo "window.location = 'index.php?page=expenses'; ";
   echo "</script>";
   }
   else{

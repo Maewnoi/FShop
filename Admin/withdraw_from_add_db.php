@@ -1,17 +1,13 @@
 <?php
 include('condb.php');
  
-$a_user = $_POST['a_user'];
-$a_pass = $_POST['a_pass'];
-$a_name = $_POST['a_name'];
+$p_id = $_POST['p_id'];
+$wd_quantity = $_POST['wd_quantity'];
+$wd_time = $_POST['wd_time'];
+$wd_note = $_POST['wd_note'];
  
-$sql ="INSERT INTO tbl_admin
-    
-    (a_user,  a_pass, a_name) 
- 
-    VALUES 
- 
-    ('$a_user', '$a_pass', '$a_name')";
+$sql ="INSERT INTO `tbl_withdraw`(`wd_id`, `p_id`, `wd_quantity`, `wd _time`, `wd _note`)
+VALUES (NULL,'$p_id','$wd_quantity','$wd_time','$wd_note') ";
     
     $result = mysqli_query($con, $sql) ;
     mysqli_close($con);
@@ -19,13 +15,13 @@ $sql ="INSERT INTO tbl_admin
     if($result){
       echo "<script>";
       echo "alert('เพิ่มข้อมูลเรียบร้อย');";
-      echo "window.location ='admin.php'; ";
+      echo "window.location ='index.php?page=withdraw'; ";
       echo "</script>";
     } else {
       
       echo "<script>";
       echo "alert('ERROR!');";
-      echo "window.location ='admin.php'; ";
+      echo "window.location ='index.php?page=withdraw'; ";
       echo "</script>";
     }
 ?>
