@@ -9,44 +9,41 @@ $row = mysqli_fetch_array($result);
 extract($row);
 ?>
 <?php include('h.php');?>
+<br>
 <div class="container">
-  <div class="row">
       <form  name="addexpenses" action="expenses_form_edit_db.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
-        <div class="form-group">
-          <div class="col-sm-9">
-            <p> รหัส</p>
-            <input type="text"  name="e_id" class="form-control" required placeholder="รหัส" value="<?php echo $e_id; ?>">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-9">
-            <p>รายการ</p>
+        <input type="hidden"  name="e_id" value="<?php echo $e_id; ?>">
+
+        <div class="form-group row">
+        <div class="col-sm-2">รายการ</div>
+          <div class="col-sm-6">
             <input type="text"  name="e_list" class="form-control" required placeholder="รายการ" value="<?php echo $e_list; ?>">
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-sm-9">
-            <p>วัน/เดือน/ปี</p>
+        <br>
+        <div class="form-group row">
+        <div class="col-sm-2">วัน/เดือน/ปี</div>
+          <div class="col-sm-3">
             <input type="datetime-local"  name="e_time" class="form-control" required placeholder="วัน/เดือน/ปี" value="<?php echo $e_time; ?>">
           </div>
         </div>
-
-        <div class="form-group">
-          <div class="col-sm-9">
-            <p>จำนวนเงิน</p>
+        <br>
+        <div class="form-group row">
+        <div class="col-sm-2">จำนวนเงิน</div>
+          <div class="col-sm-2">
             <input type="text"  name="e_pay" class="form-control" required placeholder="จำนวนเงิน" value="<?php echo $e_pay; ?>">
           </div>
         </div>
-
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <p> รายละเอียด </p>
+        <br>
+        <div class="form-group row">
+        <div class="col-sm-2">รายละเอียด</div>
+          <div class="col-sm-6">
              <textarea  name="e_note" rows="5" cols="60"><?php echo $e_note; ?>
              </textarea>
           </div>
         </div>
-          <div class="form-group">
+        <br>
+          <div class="form-group row">
             <div class="col-sm-6" align="right">
               <button type="submit" class="btn btn-success btn-sm" id="btn"> บันทึก </button>      
             </div> 

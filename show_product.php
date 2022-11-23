@@ -4,6 +4,7 @@
   //echo($query_product);
   //exit() 
 ?>
+<br>
 <div class="row">
 <?php foreach ($result_pro as $row_pro) {?>
   <div class=" col-md-4" style=" margin-bottom: 10px;"style=" margin-top:10px;margin-right: 5px;">
@@ -13,7 +14,7 @@
       </div>
       <div class="card-body">
         <h6 class="card-title"><?php echo$row_pro['p_name'] ?></h6>
-        <p > ประเภทสินค้า : <?php echo$row_pro['type_name'];?> </p>
+        <p > ราคา : <?php echo$row_pro['p_price'];?> </p>
        <center><a href="index.php?act=productdetail&type_id=<?php echo $type_id;?>&id=<?php echo $row_pro['p_id'];?>" class="btn btn-primary">รายละเอียด</a></center>
       </div>
       </div>

@@ -20,13 +20,13 @@ $sql ="INSERT INTO tbl_expenses
     if($result){
       echo "<script>";
       echo "alert('เพิ่มข้อมูลเรียบร้อย');";
-      echo "window.location ='expenses.php'; ";
+      echo "window.location ='index.php?page=expenses'; ";
       echo "</script>";
     } else {
       
       echo "<script>";
       echo "alert('ERROR!');";
-      echo "window.location ='expenses.php'; ";
+      echo "window.location ='index.php?page=expenses'; ";
       echo "</script>";
     }
 ?>

@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-9">
       <br>
-      <a href="index.php?page=expenses_form_add" class="btn-info btn-lg">เพิ่ม </a>
+      <a href="index.php?page=expenses_form_add" class="btn-info btn-lg">บันทึกรายจ่าย</a>
 
       <hr>
       <?php

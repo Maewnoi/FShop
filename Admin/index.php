@@ -74,8 +74,11 @@
           include('expenses_form_add.php');
         }else if($_GET['page'] == 'expenses_form_edit'){
           include('expenses_form_edit.php');
+        }else if($_GET['page'] == 'stock'){
+          include('stock.php');
+        }else if($_GET['page'] == 'stock_form_edit'){
+          include('stock_form_edit.php');
         }
-        
         else{
           
         }

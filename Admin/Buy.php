@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-9">
       <br>
-      <a href="index.php?page=Buy_form_add" class="btn-info btn-lg">เพิ่ม </a>
+      <a href="index.php?page=Buy_form_add" class="btn-info btn-lg">สั่งซื้อวัตถุดิบ</a>
 
       <hr>
 <?php
@@ -25,26 +25,29 @@
                       <tr>
                       <td>รหัส</td>
                       <td>รายการวัตถุดิบ</td>
-                      <td>ปรเภทสินค้า</td>
-                      <td>จำนวนสินค้า</td>
-                      <td>ราคาสินค้า</td>
-                      <td>สถานะสินค้า</td>
+                      <td>จำนวนที่สั่งซื้อ</td>
+                      <td>ราคา</td>
+                      <td>สถานะ</td>
+                      <td>สถานะรับของ</td>
                       <td>แก้ไข</td>
                       <td>ลบ</td>                 
                     </tr>";
                 
                   while($row = mysqli_fetch_array($result)) {
-                      if($row["b_status"] == 'Y'){$text = 'ชำระแล้ว';}
+                      if($row["b_status"] == 'y'){$text = 'ชำระแล้ว';}
                       else{$text = 'ยังไม่ชำระ';}
+
+                      if($row["b_received"] == 'y'){$text2 = 'รับแล้ว';}
+                      else{$text2 = 'ยังไม่รับ';}
 
 
                   echo "<tr>";
                     echo "<td>" .$row["b_id"] .  "</td> ";
                     echo "<td>" .$row["b_list"] .  "</td> ";
-                    echo "<td>" .$row["type_id"] .  "</td> ";
                     echo "<td>" .$row["b_QTY"] .  "</td> ";
                     echo "<td>" .$row["b_price"] .  "</td> ";
-                    echo "<td>" .$text.  "</td> ";
+                    echo "<td>" .$text."</td> ";
+                    echo "<td>" .$text2."</td> ";
 
                     //แก้ไขข้อมูล
                     echo "<td><a href='index.php?page=Buy_form_edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";  

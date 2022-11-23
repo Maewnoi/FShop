@@ -21,6 +21,18 @@
                   include('show_product_type.php');
               }elseif($act=='productdetail'){
                 include('product_detail.php');
+              }elseif($act=='login'){
+                include('login_member.php');
+              }elseif($act=='login_admin'){
+                include('from_login_admin.php');
+              }elseif($act=='register'){
+                include('./Admin/member_form_add.php');
+              }elseif($act=='basket'){
+                include('basket.php');
+              }elseif($act=='buyer_data'){
+                include('buyer_data.php');
+              }elseif($act=='purchase'){
+                include('purchase.php');
               }elseif($q!=''){ 
                 include('show_product_q.php');
               }else{
@@ -29,7 +41,9 @@
         ?> 
 
       </div>
-    </div>    
+    </div>   
+    
+    <?php include('footer.php');?> 
 </div>
 
 </body>

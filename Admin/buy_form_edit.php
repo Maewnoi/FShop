@@ -7,9 +7,6 @@ $query = "SELECT * FROM tbl_buy WHERE b_id = '".$_GET['ID']."' " ;
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
 
-$sql2 = "SELECT * FROM tbl_type 
-ORDER BY type_id DESC";
-$result_t = mysqli_query($con, $sql2);
 ?>
 <br>
 <div class="container">
@@ -19,18 +16,6 @@ $result_t = mysqli_query($con, $sql2);
           <div class="col-sm-2">รายการวัตถุดิบ</div>
           <div class="col-sm-3">
             <input type="text"  name="b_list" value="<?php echo $row['b_list']; ?>" class="form-control" />
-          </div>
-        </div></br>
-        <div class="form-group row">
-          <div class="col-sm-2">ประเภทสินค้า</div>
-          <div class="col-sm-3">
-            <select name="type_id" class="form-control" required>
-              <?php foreach($result_t as $results){?>
-                <option value="<?php echo $results["type_id"];?>" <?php if($row['type_id'] == $results["type_id"]){ echo "selected";}?>>
-                <?php echo $results["type_name"]; ?>
-              </option>
-              <?php } ?>
-            </select>
           </div>
         </div></br>
         <div class="form-group row">
@@ -50,11 +35,22 @@ $result_t = mysqli_query($con, $sql2);
           <div class="col-sm-2">สถานะ</div>
           
           <div class="col-sm-3">
-            <input type="radio" id="b_status" name="b_status" value="Y" <?php if($row['b_status'] == 'Y'){ echo "checked";}?>> ชำระแล้ว <br>
-            <input type="radio" id="b_status" name="b_status" value="N" <?php if($row['b_status'] == 'N'){ echo "checked";}?>> ยังไม่ชำระ
+            <input type="radio" id="b_status" name="b_status" value="y" <?php if($row['b_status'] == 'y'){ echo "checked";}?>> ชำระแล้ว <br>
+            <input type="radio" id="b_status" name="b_status" value="n" <?php if($row['b_status'] == 'n'){ echo "checked";}?>> ยังไม่ชำระ
 
           </div>
-</div>
+      </div>
+      <br>
+      
+        
+      <div class="form-group row">
+          
+          <div class="col-sm-2">สถานะรับวัตถุดิบ</div>
+          <div class="col-sm-2">
+            <input type="radio" id="y" name="b_received" value="y" <?php if($row['b_received'] == 'y'){ echo "checked";}?>> รับแล้ว <br>
+            <input type="radio" id="n" name="b_received" value="n" <?php if($row['b_received'] == 'n'){ echo "checked";}?>> ยังไม่รับ
+          </div>
+        </div>
 </br>
 
         <div class="form-group row">

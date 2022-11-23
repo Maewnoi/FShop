@@ -28,13 +28,25 @@ if($_GET['page'] == 'product' || $_GET['page'] == 'product_form_add' || $_GET['p
 	<a href="index.php?page=product" class="list-group-item list-group-item-action">จัดการสินค้า</a>
 <?php } 
 
+//จัดการวัตถุดิบ
+if($_GET['page'] == 'stock' || $_GET['page'] == 'stock_form_add' || $_GET['page'] == 'stock_form_edit'){?>
+	<a href="index.php?page=stock" class="list-group-item list-group-item">จัดการวัตถุดิบ</a>
+<?php }else{ ?>
+<a href="index.php?page=stock" class="list-group-item list-group-item-action">จัดการวัตถุดิบ</a>
+<?php } 
+
 //จัดการสั่งซื้อวัตถุดิบ
 if($_GET['page'] == 'Buy' || $_GET['page'] == 'Buy_form_add' || $_GET['page'] == 'Buy_form_edit'){?>
 		<a href="index.php?page=Buy" class="list-group-item list-group-item">จัดการสั่งซื้อวัตถุดิบ</a>
 <?php }else{ ?>
 	<a href="index.php?page=Buy" class="list-group-item list-group-item-action">จัดการสั่งซื้อวัตถุดิบ</a>
 <?php } 
-
+//จัดการเบิกวัตถุดิบ
+if($_GET['page'] == 'withdraw' || $_GET['page'] == 'withdraw_form_add' || $_GET['page'] == 'withdraw_form_edit'){?>
+		<a href="index.php?page=withdraw" class="list-group-item list-group-item">จัดการเบิกวัตถุดิบ</a>
+<?php }else{ ?>
+	<a href="index.php?page=withdraw" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>
+<?php } 
 //จัดการรับคำสั่งซื้อ
 if($_GET['page'] == 'order' || $_GET['page'] == 'order_form_add' || $_GET['page'] == 'order_form_edit'){?>
 		<a href="index.php?page=order" class="list-group-item list-group-item">จัดการรับคำสั่งซื้อ</a>
@@ -42,22 +54,13 @@ if($_GET['page'] == 'order' || $_GET['page'] == 'order_form_add' || $_GET['page'
 	<a href="index.php?page=order" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ</a>
 <?php } ?>
 
-	<a href="#" class="list-group-item list-group-item-action">จัดการขาย</a>
-<?php 
-//จัดการเบิกวัตถุดิบ
-if($_GET['page'] == 'withdraw' || $_GET['page'] == 'withdraw_form_add' || $_GET['page'] == 'withdraw_form_edit'){?>
-		<a href="index.php?page=withdraw" class="list-group-item list-group-item">จัดการเบิกวัตถุดิบ</a>
-<?php }else{ ?>
-	<a href="index.php?page=withdraw" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>
-<?php } ?>
-
-	<a href="#" class="list-group-item list-group-item-action">จัดการจัดส่งสินค้า</a>
+	<a href="#" class="list-group-item list-group-item-action">บันทึกการขาย</a>
 <?php 
 //จัดการรายจ่าย
 if($_GET['page'] == 'expenses' || $_GET['page'] == 'expenses_form_add' || $_GET['page'] == 'expenses_form_edit'){?>
-		<a href="index.php?page=expenses" class="list-group-item list-group-item">จัดการรายจ่าย</a>
+		<a href="index.php?page=expenses" class="list-group-item list-group-item">บันทึกรายจ่าย</a>
 <?php }else{ ?>
-	<a href="index.php?page=expenses" class="list-group-item list-group-item-action">จัดการรายจ่าย</a>
+	<a href="index.php?page=expenses" class="list-group-item list-group-item-action">บันทึกรายจ่าย</a>
 <?php } ?>
 	<a href="../logout.php" class="list-group-item list-group-item-action">ออกจากระบบ</a>
 </div>

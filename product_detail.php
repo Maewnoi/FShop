@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 $p_id = $_GET["id"];
 ?>
 
@@ -18,26 +20,45 @@ $p_id = $_GET["id"];
               <div class="polaroid">
                 <?php echo"<img src='./Admin/p_img/".$row['p_img']."'width='100%'>";?>
                   <div class="container_di">
-                    <p><?php echo $row["p_name"];?></p>
+                    <cente><p><?php echo $row["p_name"];?></p></center>
                   </div>
               </div>
             </div>
             <div class="col-md-6">
               <h3><b><?php echo $row["p_name"];?></b></h3>
-              <p>
-                ประเภท <?php echo $row["type_name"];?>
-              </p>
+              <p> ประเภท <?php echo $row["type_name"];?></p>
+              <br>
               <?php echo $row["p_detail"];?>
-                 <p> 
+              <hr>
+              <h2>฿ <?php echo $row["p_price"];?></h2>
+              <hr>
+              <?php 
+                $q = "SELECT * FROM `tbl_basket` WHERE `bk_product` = '$p_id'
+                AND `bk_buyer` = '".$_SESSION['ID']."' AND `bk_status` = 'wait' ";
+                $qq = mysqli_query($con, $q);
+                $qqq = mysqli_num_rows($qq);
+
+                if($qqq >= '1'){ //ถ้าเพิ่มลงตะกร้าแล้วจะเป็นปุ่มลบออกจากตะกร้า
+              ?>
+              <form  name="addBuy" action="basket_add.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
+              <input type="hidden"  name="p_id" value="<?php echo $row["p_id"];?>" />
+              <button type="submit" class="btn btn-danger" name="bgdelete">ลบออกจากตะกร้า</button>
+      
+            </form>
+                  
+              <?php }else{ //ถ้ายังไม่เพิ่มลงตะกร้าแล้วจะเป็นปุ่มเพิ่มลงตะกร้า?>
+                  <form  name="addBuy" action="basket_add.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
+                    <input type="hidden"  name="p_id" value="<?php echo $row["p_id"];?>" />
+                    <input type="hidden"  name="p_price" value="<?php echo $row["p_price"];?>" />
+                    <button type="submit" class="btn btn-success" name="bgadd">เพิ่มลงตะกร้า</button>
+            
+                  </form>
+              <?php } ?>
+
+                
             </div>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5500ee80057fdb99"></script>
-          <div class="addthis_inline_share_toolbox_sf2w" style="margin-left: 400px"></div>
-                  </p>
           </div>
+
         </div>
       </div>
 </div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
