@@ -3,9 +3,11 @@ include("./condb.php");
 session_start();
   if(isset($_POST['bgadd'])){
 
+$bk_sum = $_POST['p_price']*$_POST['p_QTY'];
+
     $sql="INSERT INTO `tbl_basket`(`bk_id`, `bk_product`, `bk_QTY`, `bk_price`,`bk_sum`, `bk_status`,
     `bk_buyer`, `bk_created_at`)
-    VALUES (NULL,'".$_POST['p_id']."','1','".$_POST['p_price']."','".$_POST['p_price']."','wait',
+    VALUES (NULL,'".$_POST['p_id']."','".$_POST['p_QTY']."','".$_POST['p_price']."','$bk_sum','wait',
     '".$_SESSION["ID"]."',Now() ) ";
 
     $result = mysqli_query($con,$sql);

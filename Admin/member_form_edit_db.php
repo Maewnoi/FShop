@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <?php
 //1. เชื่อมต่อ database: 
-include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+include('condb.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
  
 //สร้างตัวแปรสำหรับรับค่าที่นำมาแก้ไขจากฟอร์ม
   $member_id = $_REQUEST["member_id"];
@@ -32,7 +32,11 @@ mysqli_close($con); //ปิดการเชื่อมต่อ database
   if($result){
   echo "<script type='text/javascript'>";
   echo "alert('Update Succesfuly');";
-  echo "window.location = 'member.php'; ";
+  if($_REQUEST["ID"] == $_SESSION['ID']){
+  echo "window.location = '../index.php?act=edit_profile&ID=".$member_id.";' ";
+  }else{
+    echo "window.location = 'index.php?page=member_form_edit'; ";
+  }
   echo "</script>";
   }
   else{

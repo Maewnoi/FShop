@@ -3,7 +3,8 @@
 session_start();
 $p_id = $_GET["id"];
 ?>
-
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <div class="row">
       <?php
       $sql = "SELECT * FROM tbl_product as p 
@@ -50,7 +51,8 @@ $p_id = $_GET["id"];
                   <form  name="addBuy" action="basket_add.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
                     <input type="hidden"  name="p_id" value="<?php echo $row["p_id"];?>" />
                     <input type="hidden"  name="p_price" value="<?php echo $row["p_price"];?>" />
-                    <button type="submit" class="btn btn-success" name="bgadd">เพิ่มลงตะกร้า</button>
+                    <input type="number" min='1' name="p_QTY" value="1" style="width: 58px;"/>
+                    <button type="submit" class="btn btn-success" name="bgadd"><i class='fas fa-shopping-cart'></i></button>
             
                   </form>
               <?php } ?>

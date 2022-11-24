@@ -27,6 +27,8 @@
                 include('from_login_admin.php');
               }elseif($act=='register'){
                 include('./Admin/member_form_add.php');
+              }elseif($act=='edit_profile'){
+                include('./Admin/member_form_edit.php');
               }elseif($act=='basket'){
                 include('basket.php');
               }elseif($act=='buyer_data'){

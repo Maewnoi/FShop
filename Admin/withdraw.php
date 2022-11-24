@@ -37,7 +37,7 @@
                     echo "<td>" .$row["wd_time"].  "</td> ";
                     echo "<td>" .$row["wd_note"].  "</td> ";
                     //แก้ไขข้อมูล
-                    echo "<td><a href='withdraw.php?act=edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";
+                    echo "<td><a href='index.php?page=withdraw_form_edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";
                     
                     //ลบข้อมูล
                     echo "<td><a href='withdraw_del_db.php?ID=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\" class='btn btn-danger btn-xs'>ลบ</a></td> ";

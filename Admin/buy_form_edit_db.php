@@ -10,6 +10,8 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
   $b_price = $_POST["b_price"];
   $b_status = $_POST["b_status"];
   $b_received = $_POST["b_received"];
+  $b_st_id = $_POST["b_st_id"];
+
 
 //ทำการปรับปรุงข้อมูลที่จะแก้ไขลงใน database 
   
@@ -22,20 +24,27 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
  
 $result = mysqli_query($con, $sql);
 // echo  $sql;
-mysqli_close($con); //ปิดการเชื่อมต่อ database 
 
-if($b_received == 'y'){//ถ้าเลือกได้รับวัตถุดิบแล้ว
-  $q = "SELECT * FROM `tbl_stock` WHERE `st_id` = '$b_st_id' ";
+$q = "SELECT * FROM `tbl_stock` WHERE `st_id` = '$b_st_id' ";
   $qq = mysqli_query($con, $q);
   $qqq = mysqli_fetch_array($qq);
 
-  $newstock = $qqq['st_QTY'] + $b_QTY;
+if($_POST['b_received_old'] != $b_received){
+
+  if($_POST['b_received_old'] == 'y' && $b_received == 'n'){
+    //เดิมได้รับของแล้วเปลี่ยนเป็นยังไม่ได้รับ ให้ -
+    $newstock = $qqq['st_QTY'] - $b_QTY;
+  }else if($_POST['b_received_old'] == 'n' && $b_received == 'y'){ //+
+    $newstock = $qqq['st_QTY'] + $b_QTY;
+  }
 
   $q = "UPDATE `tbl_stock` SET  `st_QTY` = '$newstock' WHERE `st_id`  = '$b_st_id'";
   $qq = mysqli_query($con, $q);
 
-//echo $qqq['st_QTY'].' + '.$b_QTY.' + '.$q;
 }
+//echo $_POST['b_received_old'].'<br>'.$b_received.'<br>'.$q;
+
+mysqli_close($con); //ปิดการเชื่อมต่อ database 
 //จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
 
   if($result){

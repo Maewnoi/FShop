@@ -12,6 +12,8 @@ $row = mysqli_fetch_array($result);
 <div class="container">
       <form  name="addBuy" action="buy_form_edit_db.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
             <input type="hidden"  name="b_id" value="<?php echo $row['b_id']; ?>"  />
+            <input type="hidden"  name="b_st_id" value="<?php echo $row['b_st_id']; ?>"  />
+            <input type="hidden"  name="b_received_old" value="<?php echo $row['b_received']; ?>"  />
         <div class="form-group row">
           <div class="col-sm-2">รายการวัตถุดิบ</div>
           <div class="col-sm-3">

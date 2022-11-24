@@ -32,8 +32,8 @@
         </li>
      <?php  }?>
     </ul>
+    <a href="index.php?act=edit_profile&ID=<?php echo $_SESSION["ID"];?>"><?php echo $_SESSION["name"];?></a> &nbsp;&nbsp;&nbsp;
     <form class="form-inline my-2 my-lg-0" action="index.php" method="GET">
-      <?php echo $_SESSION["name"];?>
       <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>

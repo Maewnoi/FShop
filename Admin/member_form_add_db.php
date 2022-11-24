@@ -18,9 +18,11 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
   //จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
   
   if($result){
+
   echo "<script type='text/javascript'>";
   echo "alert('เพิ่มข้อมูลเรียบร้อย');";
-  echo "window.location = 'index.php?page=member'; ";
+  if($_SESSION['ID'] == NULL){echo "window.location = '../index.php?act=login'; "; }
+  else{echo "window.location = 'index.php?page=member'; "; }
   echo "</script>";
   }
   else{
