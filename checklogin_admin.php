@@ -12,6 +12,7 @@ session_start();
 
                       $_SESSION["ID"] = $row["a_id"];
                       $_SESSION["a_name"] = $row["a_name"];
+                      $_SESSION["Admin"] = '1';
 
                       Header("Location: Admin/index.php");
                  

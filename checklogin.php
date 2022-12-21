@@ -4,7 +4,7 @@ session_start();
   if(isset($_POST['username'])){
     
 
-    $sql="SELECT * FROM `tbl_member` WHERE `m_user`='".$_POST['username']."'  AND `m_pass`='".$_POST['password']."' ";
+    $sql="SELECT * FROM `tbl_member` WHERE `m_email`='".$_POST['username']."'  AND `m_pass`='".$_POST['password']."' ";
     $result = mysqli_query($con,$sql);
 // `member_id`, `m_user`, `m_pass`, `m_name`, `m_email`, `m_tel`, `m_address`, `date_save`
                   if(mysqli_num_rows($result)==1){
@@ -15,6 +15,7 @@ session_start();
                       $_SESSION["email"] = $row["m_email"];
                       $_SESSION["tel"] = $row["m_tel"];
                       $_SESSION["address"] = $row["m_address"];
+                      $_SESSION["Admin"] = '0';
 
                       Header("Location: index.php");
                  

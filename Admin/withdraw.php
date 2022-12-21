@@ -10,8 +10,16 @@
 
       <hr>
       <?php
-                //2. query ข้อมูลจากตาราง tb_admin:
-                $query = "SELECT * FROM tbl_withdraw ORDER BY wd_id ASC";
+if($_GET['search'] != NULL){
+ 
+  $query = "SELECT *  FROM tbl_withdraw 
+  
+  WHERE `wd_list` LIKE '%".$_GET['search']."%'
+  ORDER BY wd_id ASC";
+  }else{
+   $query = "SELECT * FROM tbl_withdraw ORDER BY wd_id ASC";
+                                                          
+  }
                 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
                 $result = mysqli_query($con, $query);
                 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:

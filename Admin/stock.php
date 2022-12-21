@@ -27,8 +27,15 @@
 
       <hr>
       <?php
-                //2. query ข้อมูลจากตาราง tb_admin:
-                $query = "SELECT * FROM tbl_stock ORDER BY `tbl_stock`.`st_name` ASC";
+ if($_GET['search'] != NULL){
+  $query = "SELECT * FROM tbl_stock
+  
+  WHERE `st_name` LIKE '%".$_GET['search']."%'
+  ORDER BY `tbl_stock`.`st_name` ASC";
+  }else{
+  $query = "SELECT * FROM tbl_stock ORDER BY `tbl_stock`.`st_name` ASC";
+                              
+  }
                 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
                 $result = mysqli_query($con, $query);
                 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:

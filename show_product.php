@@ -1,5 +1,15 @@
 <?php
+if($_GET['search'] != NULL){
+  $query_product = "SELECT * FROM tbl_product as p inner join tbl_type as t on p.type_id = t.type_id
+  
+  WHERE (`p_name` LIKE '%".$_GET['search']."%' OR `p_color` LIKE '%".$_GET['search']."%' OR `p_detail` LIKE '%".$_GET['search']."%')
+  ORDER BY p.p_id ASC";
+  
+}else{
   $query_product = "SELECT * FROM tbl_product as p inner join tbl_type as t on p.type_id = t.type_id ORDER BY p.p_id ASC";
+
+}
+ 
   $result_pro =mysqli_query($con, $query_product) ;
   //echo($query_product);
   //exit() 

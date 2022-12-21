@@ -14,6 +14,12 @@ if($_GET['page'] == 'member' || $_GET['page'] == 'member_form_add' || $_GET['pag
 	<a href="index.php?page=member" class="list-group-item list-group-item-action">จัดการสมาชิก</a>
 <?php }
 
+//จัดการประเภทงานที่รับ
+if($_GET['page'] == 'typeJob' || $_GET['page'] == 'typeJob_form_add' || $_GET['page'] == 'typeJob_form_edit'){?>
+	<a href="index.php?page=typeJob" class="list-group-item list-group-item">จัดการประเภทงานที่รับ</a>
+<?php }else{ ?>
+<a href="index.php?page=typeJob" class="list-group-item list-group-item-action">จัดการประเภทงานที่รับ</a>
+<?php } 
 //จัดการประเภทสินค้า
 if($_GET['page'] == 'type' || $_GET['page'] == 'type_form_add' || $_GET['page'] == 'type_form_edit'){?>
 		<a href="index.php?page=type" class="list-group-item list-group-item">จัดการประเภทสินค้า</a>

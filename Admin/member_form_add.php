@@ -32,8 +32,8 @@ else{ echo 'สมัครสมาชิก';
         </div>
         <div class="form-group row">
           <div class="col-sm-5" align="left">
-          เบอร์โทร :
-            <input  name="m_tel" type="text" class="form-control" id="m_tel"  placeholder="เบอร์โทร ตัวเลขเท่านั้น" />
+          เบอร์โทรศัพท์ :
+            <input  name="m_tel" type="text" class="form-control" id="m_tel"  placeholder="เบอร์โทรศัพท์ ตัวเลขเท่านั้น" />
           </div>
           <div class="col-sm-5" align="left">
           ที่อยู่ :

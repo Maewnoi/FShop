@@ -23,7 +23,7 @@ $sql ="INSERT INTO tbl_type
       
       echo "<script>";
       echo "alert('ERROR!');";
-      echo "window.location ='type.php'; ";
+      echo "window.location ='index.php?page=type'; ";
       echo "</script>";
     }
 ?>

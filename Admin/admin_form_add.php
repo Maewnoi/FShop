@@ -23,6 +23,16 @@
             </div>
           </div>
           <br>
+          
+        <div class="row">
+          
+        <div class="col-sm-3" align="right">  ที่อยู่ : </div>
+          <div class="col-sm-5" align="left">
+          
+            <textarea name="a_address" class="form-control" id="a_address" required  placeholder="ที่อยู่"></textarea> 
+          </div>
+        </div>
+        <br>
           <center>
             <button type="submit" class="btn btn-success" id="btn"> <span class="glyphicon glyphicon-saved"></span> บันทึก</button>      
           </center>

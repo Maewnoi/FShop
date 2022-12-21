@@ -14,10 +14,19 @@
           </script>';
     echo '<meta http-equiv="refresh" content="1;url=product.php" />';
   }
+if($_GET['search'] != NULL){
+  $query = "SELECT * FROM tbl_product as p
+INNER JOIN tbl_type as t ON p.type_id = t.type_id
+WHERE (`p_name` LIKE '%".$_GET['search']."%' OR `p_color` LIKE '%".$_GET['search']."%' OR `p_detail` LIKE '%".$_GET['search']."%')
+ORDER BY t.type_id ASC ";
+}else{
 
+  
 $query = "SELECT * FROM tbl_product as p
 INNER JOIN tbl_type as t ON p.type_id = t.type_id
 ORDER BY t.type_id ASC ";
+
+}
 $i = 1;
 $result = mysqli_query($con, $query);
 echo ' <table id="example1" class="table table-bordered table-striped">';
@@ -38,6 +47,8 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
     echo "<td class='hidden-xs'><img src='./p_img/".$row['p_img']."' width='100%'>"."</td>";
     echo "<td> ชื่อ: " .$row["p_name"] .
     "<br>ประเภท: <font color='blue'>".$row["type_name"] ."</font>".
+    "<br>สี : ".$row["p_color"] .
+
       "</td class='hidden-xs'> ";
     echo "<td class='hidden-xs'>" .$row["p_detail"] ."</td> ";
        echo "<td> ราคา " .$row["p_price"] ." บาท".    "<br>จำนวน ".$row["p_qty"]." ".$row["p_unit"].

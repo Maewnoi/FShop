@@ -25,6 +25,9 @@
           <a class="nav-link" href="index.php?act=basket">ตะกร้าสินค้า<span class="badge badge-danger"><?php echo $qqq;?></span></a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="index.php?act=order">สั่งซื้อ</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="index.php?act=purchase">ประวัติการซื้อ</a>
         </li>
         <li class="nav-item active">
@@ -32,9 +35,10 @@
         </li>
      <?php  }?>
     </ul>
+
     <a href="index.php?act=edit_profile&ID=<?php echo $_SESSION["ID"];?>"><?php echo $_SESSION["name"];?></a> &nbsp;&nbsp;&nbsp;
-    <form class="form-inline my-2 my-lg-0" action="index.php" method="GET">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q">
+    <form  name="admin" action="navbar_Search.php" method="POST" id="admin" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

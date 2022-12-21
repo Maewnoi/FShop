@@ -10,6 +10,16 @@
       <a href="index.php?page=order_form_add" class="btn-info btn-lg">เพิ่ม </a>
       <hr>
       <?php
+      if($_GET['search'] != NULL){
+ 
+        $query = "SELECT *  FROM tbl_staple 
+        
+        WHERE `st_list` LIKE '%".$_GET['search']."%'
+        ORDER BY st_id ASC";
+        }else{
+         $query = "SELECT * FROM tbl_staple ORDER BY st_id ASC";
+                                                                
+        }
                 $query = "SELECT * FROM tbl_staple ORDER BY st_id ASC";
                 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
                 $result = mysqli_query($con, $query);

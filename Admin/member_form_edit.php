@@ -11,7 +11,7 @@ extract($row);
 <br>
 แก้ไขสมาชิก <?=$m_user;?>
 <hr>
-<?php if($_REQUEST["ID"] == $_SESSION['ID']){
+<?php if($_SESSION['Admin'] != '1'){ //แก้ไขข้อมูลตัวเอง
   echo '<form  name="register" action="./Admin/member_form_edit_db.php" method="POST" class="form-horizontal">';
 }else{
   echo '<form  name="register" action="member_form_edit_db.php" method="POST" class="form-horizontal">';

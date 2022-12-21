@@ -10,10 +10,18 @@
 
       <hr>
       <?php
-                //2. query ข้อมูลจากตาราง tb_admin:
-                $query = "SELECT * FROM tbl_expenses ORDER BY e_id ASC";
-                //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
-                $result = mysqli_query($con, $query);
+      if($_GET['search'] != NULL){
+ 
+        $query = "SELECT *  FROM tbl_expenses 
+        
+        WHERE (`e_list` LIKE '%".$_GET['search']."%' OR
+        `e_note` LIKE '%".$_GET['search']."%')
+        ORDER BY e_id ASC";
+        }else{
+         $query = "SELECT * FROM tbl_expenses ORDER BY e_id ASC";
+                                                                
+        }
+        $result = mysqli_query($con, $query);
                 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:
                 echo ' <table class="table table-hover">';
                   //หัวข้อตาราง 

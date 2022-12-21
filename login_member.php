@@ -17,7 +17,7 @@ include('h.php');
         <div class="form-group row">
         <div class="col-sm-3"></div>
           <div class="col-sm-4">
-            <input type="text"  name="username" class="form-control" required placeholder="Username" />
+            <input type="email"  name="username" class="form-control" required placeholder="email" />
           </div>
         </div>
         <div class="form-group row">

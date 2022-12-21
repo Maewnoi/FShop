@@ -4,16 +4,6 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
 $a_id = $_REQUEST["ID"];
 //2. query ข้อมูลจากตาราง:
 $sql = "SELECT * FROM tbl_admin WHERE a_id='$a_id' ";
-$result = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($result);
-extract($row);
-?>
-<?php
-//1. เชื่อมต่อ database:
-include('condb.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
-$a_id = $_REQUEST["ID"];
-//2. query ข้อมูลจากตาราง:
-$sql = "SELECT * FROM tbl_admin WHERE a_id='$a_id' ";
 $result = mysqli_query($con, $sql) ;
 $row = mysqli_fetch_array($result);
 extract($row);
@@ -42,6 +32,16 @@ extract($row);
             <div class="col-sm-3" align="right"> ชื่อ-สกุล  </div>
             <div class="col-sm-6" align="left">
               <input  name="a_name" type="text" required class="form-control" id="a_name" value="<?=$a_name;?>"/> 
+            </div>
+          </div>
+         <br>
+          
+        <div class="row">
+          
+          <div class="col-sm-3" align="right">  ที่อยู่ : </div>
+            <div class="col-sm-5" align="left">
+            
+              <textarea name="a_address" class="form-control" id="a_address" required  placeholder="ที่อยู่"><?=$a_address;?></textarea> 
             </div>
           </div>
           <br>

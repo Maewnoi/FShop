@@ -8,13 +8,16 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
   $a_user = $_REQUEST["a_user"];
   $a_pass = $_REQUEST["a_pass"];
   $a_name = $_REQUEST["a_name"];
+  $a_address = $_REQUEST["a_address"];
+
 
 //ทำการปรับปรุงข้อมูลที่จะแก้ไขลงใน database 
   
   $sql = "UPDATE tbl_admin SET  
       a_user='$a_user' , 
       a_pass='$a_pass' , 
-      a_name='$a_name' 
+      a_name='$a_name' ,
+      a_address='$a_address'
       WHERE a_id='$a_id' ";
 
 $result = mysqli_query($con, $sql);

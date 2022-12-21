@@ -19,12 +19,12 @@
   <?php include('navbar.php');?>
   <p></p>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <!-- Left side column. contains the logo and sidebar -->
        <?php  include('menu_left.php');?>
         <!-- Content Wrapper. Contains page content -->
       </div>
-      <div class="col-md-10 card" >
+      <div class="col-md-9 card" >
          <?php
         if($_GET['page'] == 'admin'){
           include('admin.php');
@@ -78,6 +78,12 @@
           include('stock.php');
         }else if($_GET['page'] == 'stock_form_edit'){
           include('stock_form_edit.php');
+        }else if($_GET['page'] == 'typeJob'){
+          include('typeJob.php');
+        }else if($_GET['page'] == 'typeJob_form_add'){
+          include('typeJob_form_add.php');
+        }else if($_GET['page'] == 'typeJob_form_edit'){
+          include('typeJob_form_edit.php');
         }
         else{
           

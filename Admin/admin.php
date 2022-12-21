@@ -8,8 +8,15 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
       <br> <a href="index.php?page=admin_form_add" class="btn-info btn-lg">เพิ่ม </a> <hr>
       <?php
                 
-                //2. query ข้อมูลจากตาราง tb_admin:
+                if($_GET['search'] != NULL){
+                  
+                $query = "SELECT * FROM tbl_admin 
+                 WHERE (`a_name` LIKE '%".$_GET['search']."%' OR `a_user` LIKE '%".$_GET['search']."%' OR `a_address` LIKE '%".$_GET['search']."%')
+                 ORDER BY a_id ASC";
+                }else{
                 $query = "SELECT * FROM tbl_admin ORDER BY a_id ASC";
+                
+                }
                 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
                 $result = mysqli_query($con, $query);
                 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:
@@ -29,7 +36,7 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
                   echo "<tr>";
                     echo "<td>" .$row["a_id"] .  "</td> ";
                     echo "<td>" .$row["a_user"] .  "</td> ";
-                    echo "<td>" .$row["a_pass"] .  "</td> ";
+                    echo "<td>******</td> ";
                     echo "<td>" .$row["a_name"] .  "</td> ";
                     //แก้ไขข้อมูล
                     echo "<td><a href='index.php?page=admin_form_edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";
