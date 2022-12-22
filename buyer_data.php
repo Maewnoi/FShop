@@ -1,4 +1,9 @@
 
+  <style>
+            .hide {
+          display: none;
+        }
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -14,6 +19,13 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        function show1(){
+            document.getElementById('div1').style.display ='none';
+          }
+          function show2(){
+            document.getElementById('div1').style.display = 'block';
+          }
 </script>
 <br>
 <h3>กรอกข้อมูลผู้สั่ง <?php echo $_SESSION['name'];?></h3>
@@ -66,17 +78,24 @@
       <div class="form-group row">
           <div class="col-sm-4">ช่องทางการรับสินค้า</div>
           <div class="col-sm-4">
-            <input type="radio" id="b_delivery" name="b_delivery" value="storefront" checked> รับเองหน้าร้าน <br>
-            <input type="radio" id="b_delivery" name="b_delivery" value="byself" > บริการขนส่ง
+            <input type="radio" id="b_delivery" name="b_delivery" value="storefront"  onclick="show1();"> รับเองหน้าร้าน <br>
+            <input type="radio" id="b_delivery" name="b_delivery" value="byself" onclick="show2();"> บริการขนส่ง
+          </div>
+        </div>
+        
+      <div class="form-group row hide" id="div1" >
+          <div class="col-sm-2" >ที่อยู่ผู้รับ :</div>
+          <div class="col-sm-5" align="left">
+            <textarea name="od_employee" rows="5" class="form-control">พิกัด lat lo</textarea>
           </div>
         </div>
         
       <div class="form-group row">
           <div class="col-sm-4">ช่องทางการชำระเงิน</div>
           <div class="col-sm-4">
-            <!--<input type="radio" id="pay_type" name="pay_type" value="cash"> เงินสด <br>-->
+            <!--<input type="radio" id="pay_type" name="pay_type" value="cash"> เงินสด <br>
             <input type="radio" id="pay_type" name="pay_type" value="transfer" checked> โอนเงินผ่านบัญชีธนาคาร
-            <br>
+            <br>-->
             KBANK Kasikorn Bank Company <br>
             เลขที่บัญชี xxx-x-xxxxx-x
           </div>

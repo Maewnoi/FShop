@@ -9,53 +9,47 @@ $result = mysqli_query($con, $query);
 ?>
 <br>
 <div class="container">
-      <form  name="addBuy" action="buy_form_add_db.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
-        <div class="form-group row">
-          <div class="col-sm-2">รายการวัตถุดิบ</div>
-          <div class="col-sm-4">
-            <select name="b_st_id" class="form-control" required>
-              <?php foreach($result as $results){?>
-              <option value="<?php echo $results["st_id"]."|".$results["st_name"];?>">
-                <?php echo $results["st_name"].' : '.$results["st_QTY"]; ?>
-              </option>
-              <?php } ?>
-            </select>
-          </div>
-        </div></br>
-        <div class="form-group row">
-          <div class="col-sm-2">จำนวน</div>
-          <div class="col-sm-3">
-            <input type="number"  name="b_QTY" class="form-control"/>
-          </div>
-        </div></br>
-        <div class="form-group row">
-          
-          <div class="col-sm-2">ราคา</div>
-          <div class="col-sm-3">
-            <input type="number"  name="b_price" class="form-control"/>
-          </div>
-        </div></br>
-        
+    <form  name="addBuy" action="buy_form_add_db.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
+       
+<?php
+
+$query_product = "SELECT * FROM `tbl_stock`";
+$result_pro =mysqli_query($con, $query_product) ;
+              $i = 1;
+?>
+<table border='1'>
+<tr>
+    <td>ที่</td>
+    <td>รายการวัตถุดิบ</td>
+    <td>จำนวนที่มีใน stock</td>
+    <td>จำนวนที่ต้องการซื้อเพิ่ม</td>
+    <td>ราคา/หน่วย</td>
+
+</tr>
+<?php foreach ($result_pro as $row_pro) {?>
+  <input type="hidden" name="st_name<?php echo $i;?>" value='<?php echo $row_pro['st_name'];?>' />
+  <input type="hidden" name="st_id<?php echo $i;?>" value='<?php echo $row_pro['st_id'];?>' />
+<tr>
+<td><?php echo $i;?></td>
+<td><?php echo $row_pro['st_name'];?></td>
+<td><center><?php echo $row_pro['st_QTY'];?></center></td>
+<td><input type="number"  name="b_QTY<?php echo $i;?>" class="form-control"/></td>
+<td><input type="number"  name="b_price<?php echo $i;?>" class="form-control"/></td>
+
+</tr>
+<input type="hidden" name="numi" value='<?php echo $i;?>'/>
+<?php $i++;}?>
+</table>
+<br>
         <div class="form-group row">
           
           <div class="col-sm-2">สถานะ</div>
           <div class="col-sm-2">
-            <input type="radio" id="y" name="b_status" value="y"> ชำระแล้ว <br>
-            <input type="radio" id="n" name="b_status" value="n" checked> ยังไม่ชำระ
+            <input type="radio" id="Y" name="b_status" value="y"> ชำระแล้ว <br>
+            <input type="radio" id="N" name="b_status" value="n" checked> ยังไม่ชำระ
           </div>
         </div>
       </br>
-        
-        <div class="form-group row">
-          
-          <div class="col-sm-2">สถานะรับวัตถุดิบ</div>
-          <div class="col-sm-2">
-            <input type="radio" id="y" name="b_received" value="y"> รับแล้ว <br>
-            <input type="radio" id="n" name="b_received" value="n" checked> ยังไม่รับ
-          </div>
-        </div>
-      </br>
-
         <div class="form-group row">
           <div class="col-sm-12">
             <button type="submit" class="btn btn-success" name="btnadd"> บันทึก </button>
@@ -64,3 +58,5 @@ $result = mysqli_query($con, $query);
         </div>
       </form>
   </div>
+
+  

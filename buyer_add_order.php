@@ -6,7 +6,10 @@ $m_tel= $_POST["m_tel"];
 $m_email= $_POST["m_email"];
 $m_address= $_POST["m_address"];
 $b_delivery= $_POST["b_delivery"];
-$pay_type= $_POST["pay_type"];
+$pay_type= 'transfer';//$_POST["pay_type"]od_employee
+
+$od_employee= $_POST["od_employee"];
+
 $od_data_buyer = $m_name."|".$m_tel."|".$m_email."|".$m_address;
 
 $date1 = date("Ymd_His");
@@ -30,7 +33,7 @@ if($upload !='') {
 $q = "INSERT INTO `tbl_order`(`od_id`, `od_tracking`, `od_delivery`, `od_buyer`,`od_data_buyer`, `od_status`,
  `od_pay_status`, `od_pay_type`, `od_pay_file`, `od_employee`, `od_created_at`)
  VALUES (NULL,'$od_tracking','$b_delivery','".$_SESSION['ID']."','$od_data_buyer','New',
- '0','$pay_type','$path_link','-',Now() )";
+ '0','$pay_type','$path_link','$od_employee',Now() )";
 
  $qq = mysqli_query($con, $q);
 

@@ -32,9 +32,8 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
       <th width='3%'  class='hidden-xs'>No.</th>
       <th width='20%' class='hidden-xs'>Tracking</th>
        <th width='20%'>ช่องทางการรับสินค้า</th>
+      <th width='30%'>ข้อมูลลูกค้า</th>
        <th width='10%' >ช่องทางการชำระเงิน</th>
-      <th width='30%'></th>
-      <th width='30%'></th>
     </tr>";
   echo "</thead>";
   while($row = mysqli_fetch_array($result)) {
@@ -45,16 +44,18 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
     else if($row["od_status"] == 'Cancel'){$od_status = 'ยกเลิกคำสั่งซื้อ';}
 
     
-    if($row["od_pay_type"] == 'cash'){$od_pay_type = 'รอเจ้าหน้าที่ตรวจสอบ';}
-    else if($row["od_pay_type"] == 'tranfer'){$od_pay_type = 'รับ Order';}
+    if($row["od_pay_type"] == 'cash'){$od_pay_type = 'เงินสด';}
+    else if($row["od_pay_type"] == 'transfer'){$od_pay_type = 'โอนผ่านธนาคาร';}
+    
+    if($row["od_delivery"] == 'storefront'){$od_delivery = 'รับเองหน้าร้าน';}
+    else if($row["od_delivery"] == 'byself'){$od_delivery = 'บริการขนส่ง <br>'.$row["od_employee"];}
 
   echo "<tr>";
     echo "<td >" .$i.  "</td> ";
     echo "<td>" .$row["od_tracking"] . "</td>";
-    echo "<td >" .$row["od_delivery"] ."</td> ";
+    echo "<td >" .$od_delivery ."</td> ";
     echo "<td >" .$row["od_data_buyer"] ."</td> ";
-    echo "<td >" .$row["od_pay_status"] ."</td> ";
-    echo "<td >" .$od_pay_type."' <br> <img src='./".$row['od_pay_file']."' width='100%'></td> ";
+    echo "<td >" .$od_pay_type."<br> <img src='./".$row['od_pay_file']."' width='100%'></td> ";
     echo "<td>" .$od_status."</td> ";
     echo "</tr>";
     $i++; }

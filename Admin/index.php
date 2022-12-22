@@ -85,6 +85,10 @@
         }else if($_GET['page'] == 'typeJob_form_edit'){
           include('typeJob_form_edit.php');
         }
+        //บันทึกการขายหรือขายหน้าร้าน
+        else if($_GET['page'] == 'htstore'){
+          include('htstore.php');
+        }
         else{
           
         }
