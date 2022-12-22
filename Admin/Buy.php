@@ -34,7 +34,6 @@ if($_GET['search'] != NULL){
             <td>รหัส</td>
             <td>รายการวัตถุดิบ / จำนวนที่สั่งซื้อ / ราคาต่อหน่วย</td>
             <td>ราคารวม</td>
-            <td>สถานะรับของ</td>
             <td>สถานะ</td>
             <td>แก้ไข</td>
             <td>ลบ</td>                 
@@ -59,7 +58,6 @@ if($_GET['search'] != NULL){
                     echo "</td> ";
                     echo "<td>" .$row["buy_price"] .  "</td> ";
                     echo "<td>" .$text."</td> ";
-                    echo "<td>" .$text2."</td> ";
 
                     //แก้ไขข้อมูล
                     echo "<td><a href='index.php?page=Buy_form_edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";  
