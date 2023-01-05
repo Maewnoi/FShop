@@ -58,7 +58,11 @@ if($_GET['page'] == 'withdraw' || $_GET['page'] == 'withdraw_form_add' || $_GET[
 	<a href="index.php?page=withdraw" class="list-group-item list-group-item-action">จัดการเบิกวัตถุดิบ</a>
 <?php } 
 //จัดการรับคำสั่งซื้อ
-
+if($_GET['page'] == 'storefront' || $_GET['page'] == 'storefront_form_add' || $_GET['page'] == 'storefront_form_edit'){?>
+	<a href="index.php?page=storefront" class="list-group-item list-group-item">ขายหน้าร้าน</a>
+<?php }else{ ?>
+<a href="index.php?page=storefront" class="list-group-item list-group-item-action">ขายหน้าร้าน</a>
+<?php }
 $q = "SELECT COUNT(*)as num FROM `tbl_order` WHERE `od_status` = 'NEW'";
 
  $qq = mysqli_query($con, $q);
@@ -69,9 +73,15 @@ if($_GET['page'] == 'order' || $_GET['page'] == 'order_form_add' || $_GET['page'
 		<a href="index.php?page=order" class="list-group-item list-group-item">จัดการรับคำสั่งซื้อ <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
 <?php }else{ ?>
 	<a href="index.php?page=order" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
-<?php } ?>
+<?php }
 
+if($_GET['page'] == 'htstore'){?>
+		<a href="index.php?page=htstore" class="list-group-item list-group-item">บันทึกการขาย </a>
+<?php }else{ ?>
 	<a href="index.php?page=htstore" class="list-group-item list-group-item-action">บันทึกการขาย</a>
+<?php }?>
+
+	
 <?php 
 //จัดการรายจ่าย
 if($_GET['page'] == 'expenses' || $_GET['page'] == 'expenses_form_add' || $_GET['page'] == 'expenses_form_edit'){?>

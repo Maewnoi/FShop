@@ -17,10 +17,10 @@
  
         $query = "SELECT *  FROM tbl_order 
         
-        WHERE `od_created_at` LIKE '%".$_GET['search']."%'
+        WHERE  od_status != 'Success'  AND `od_created_at` LIKE '%".$_GET['search']."%'
         ORDER BY od_created_at ASC";
         }else{
-         $query = "SELECT * FROM tbl_order ORDER BY od_created_at ASC";
+         $query = "SELECT * FROM tbl_order WHERE  od_status != 'Success' ORDER BY od_created_at ASC";
                                                                 
         }
         /*
