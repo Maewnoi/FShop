@@ -36,7 +36,7 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
       <th width='20%' class='hidden-xs'>รูป</th>
        <th width='15%'>ชื่อสินค้า</th>
        <th width='20%' class='hidden-xs'>รายละเอียดสินค้า</th>
-      <th width='15%'>ราคาสินค้า</th>
+      <th width='15%'>ราคาสินค้า (บาท)</th>
       <th width='15%'>จำนวน</th>
       <th width='5%'>แก้ไข</th>
       <th width=5%'>ลบ</th>
@@ -52,7 +52,7 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
 
       "</td class='hidden-xs'> ";
     echo "<td class='hidden-xs'>" .$row["p_detail"] ."</td> ";
-echo "<td>" .$row["p_price"] ." บาท </td> ";
+echo "<td>" .$row["p_price"] ." </td> ";
 echo "<td>".$row["p_qty"]." ".$row["p_unit"]. "</td> ";
        
   

@@ -133,11 +133,13 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
         class='btn btn-success btn-xs'>รับสินค้าแล้ว</a>";
       
       }else{
-        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=byself'
-        class='btn btn-warning btn-xs'>จัดส่ง</a>";
-      if($row["od_delivery"] == 'Delivery'){
-        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=storefront'
+      if($row["od_status"] == 'Delivery'){
+        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Success'
         class='btn btn-success btn-xs'>รับสินค้าแล้ว</a>";
+      }else{
+        
+        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Delivery'
+        class='btn btn-warning btn-xs'>จัดส่ง</a>";
       }
       }
 

@@ -28,7 +28,7 @@
           <a class="nav-link" href="index.php?act=order">สั่งซื้อ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?act=purchase">ประวัติการซื้อ</a>
+          <a class="nav-link" href="index.php?act=purchase">ติดตามการสั่งซื้อ</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="logout.php">ออกจากระบบ</a>

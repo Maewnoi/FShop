@@ -31,14 +31,14 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
     echo "<tr class=''>
       <th width='3%'  class='hidden-xs'>No.</th>
       <th width='20%' class='hidden-xs'>Tracking</th>
-       <th width='20%'>ช่องทางการรับสินค้า</th>
       <th width='30%'>ข้อมูลลูกค้า</th>
        <th width='10%' >ช่องทางการชำระเงิน</th>
+       <th>สถานะ</th>
     </tr>";
   echo "</thead>";
   while($row = mysqli_fetch_array($result)) {
     if($row["od_status"] == 'New'){$od_status = 'รอเจ้าหน้าที่ตรวจสอบ';}
-    else if($row["od_status"] == 'TakeOrder'){$od_status = 'รับ Order';}
+    else if($row["od_status"] == 'TakeOrder'){$od_status = 'รับ Order แล้ว';}
     else if($row["od_status"] == 'Delivery'){$od_status = 'กำลังจัดส่ง';}
     else if($row["od_status"] == 'Success'){$od_status = 'เรียบร้อย';}
     else if($row["od_status"] == 'Cancel'){$od_status = 'ยกเลิกคำสั่งซื้อ';}
@@ -53,7 +53,6 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
   echo "<tr>";
     echo "<td >" .$i.  "</td> ";
     echo "<td>" .$row["od_tracking"] . "</td>";
-    echo "<td >" .$od_delivery ."</td> ";
     echo "<td >" .$row["od_data_buyer"] ."</td> ";
     echo "<td >" .$od_pay_type."<br> <img src='./".$row['od_pay_file']."' width='100%'></td> ";
     echo "<td>" .$od_status."</td> ";

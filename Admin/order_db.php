@@ -40,6 +40,7 @@
 else  if($_GET['action'] == 'update_Delivery_status' ){
   if($_GET['ss'] == 'storefront' ){$text = 'Success';}
   else if($_GET['ss'] == 'byself' ){$text = 'Delivery';}
+  else if($_GET['ss'] == 'Success' ){$text = 'Success';}
 
   $query = "UPDATE `tbl_order` SET `od_status` = '$text' WHERE `od_id` = '".$_GET['ID']."' ";
   $result = mysqli_query($con, $query);
