@@ -25,14 +25,15 @@ $a = "SELECT * FROM `tbl_buy` WHERE `b_id` = '$b_id' ";
     }
     
 //ลบข้อมูลออกจาก database ตาม member_id ที่ส่งมา
-$sql = "DELETE FROM tbl_buy WHERE b_id='$b_id' ";
+$sql = "DELETE FROM tbl_buy WHERE buy_id='$b_id' ";
 $result = mysqli_query($con, $sql);
- 
+
 //จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
-  
+ 
   if($result){
 
-    
+    $sql = "DELETE FROM `tbl_buylist` WHERE `b_buy_id`='$b_id' ";
+$result = mysqli_query($con, $sql);
     
 
   echo "<script type='text/javascript'>";

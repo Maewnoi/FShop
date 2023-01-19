@@ -31,6 +31,7 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
     echo "<tr class=''>
       <th width='3%'  class='hidden-xs'>No.</th>
       <th width='20%' class='hidden-xs'>Tracking</th>
+      <th width='20%' class='hidden-xs'>วันที่</th>
       <th width='30%'>ข้อมูลลูกค้า</th>
        <th width='10%' >ช่องทางการชำระเงิน</th>
        <th>สถานะ</th>
@@ -53,6 +54,7 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
   echo "<tr>";
     echo "<td >" .$i.  "</td> ";
     echo "<td>" .$row["od_tracking"] . "</td>";
+    echo "<td>" .$row["od_created_at"] . "</td>";
     echo "<td >" .$row["od_data_buyer"] ."</td> ";
     echo "<td >" .$od_pay_type."<br> <img src='./".$row['od_pay_file']."' width='100%'></td> ";
     echo "<td>" .$od_status."</td> ";

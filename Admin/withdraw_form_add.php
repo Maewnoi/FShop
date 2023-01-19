@@ -47,3 +47,30 @@ $result = mysqli_query($con, $query);
             <button type="submit" class="btn btn-success" name="btnadd"> บันทึก </button>
         </form>
   </div>
+  <?php
+
+$query_product = "SELECT * FROM `tbl_stock`";
+
+$i = 1;
+$result_pro =mysqli_query($con, $query_product) ;
+  //echo($query_product);
+  //exit() 
+?>
+<br>
+<div class="row">
+<?php foreach ($result_pro as $row_pro) {?>
+  <div class=" col-md-3" style=" margin-bottom: 10px;"style=" margin-top:10px;margin-right: 5px;">
+    <div class="card text-info bg-light " style="width: 250px;height: 450px;" >
+      <div class="card-header">
+        <img class="card-img-top" src=".\p_img\/<?php echo$row_pro['st_pic']; ?>" height="250px" width="auto" alt="Card image cap">
+      </div>
+      <div class="card-body">
+        <h6 class="card-title"><?php echo $row_pro['st_name'] ?></h6>
+
+        <p > จำนวนที่มีใน stock : <?php echo $row_pro['st_QTY'];?> </p>
+       <center><a href="//" class="btn btn-primary">รายละเอียด</a></center>
+      </div>
+      </div>
+  </div>
+  <?php }?>
+</div>

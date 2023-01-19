@@ -27,26 +27,11 @@ include('../condb.php');
 		move_uploaded_file($_FILES['p_img']['tmp_name'],$path_copy); 
 	}
 
-	$sql = "INSERT INTO tbl_product
-	(
-	p_name,
-	type_id,
-	p_detail,
-	p_price,
-	p_qty,
-	p_unit,
-	p_img
-	)
-	VALUES
-	(
-	'$p_name',
-	'$type_id',
-	'$p_detail',
-	'$p_price',
-	'$p_qty',
-	'$p_unit',
-	'$newname'
-	)";
+	$sql = "
+	INSERT INTO `tbl_product`(`p_id`, `p_name`, `p_color`, `type_id`, `p_detail`,
+	 `p_img`, `p_price`, `p_qty`, `p_unit`, `datesave`)
+	 VALUES (NULL,'[value-2]','[value-3]','[value-4]','[value-5]',
+	 '[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')";
 
 	$result = mysqli_query($con, $sql);
 

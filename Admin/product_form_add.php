@@ -37,6 +37,18 @@ $result2 = mysqli_query($con, $query2);
       <input type="text" name="p_name" required class="form-control">
     </div>
   </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-2 control-label"> สี : </div>
+    <div class="col-sm-3">
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="สีฟ้า">
+      <label for="vehicle1"> สีฟ้า </label><br>
+      <input type="checkbox" id="vehicle2" name="vehicle2" value="สีชมพูอมขาว">
+      <label for="vehicle2"> สีชมพูอมขาว</label><br>
+      <input type="checkbox" id="vehicle3" name="vehicle3" value="สีแดง">
+      <label for="vehicle3"> สีแดง</label><br><br>
+    </div>
+  </div>
 
    <div class="form-group row">
     <div class="col-sm-2 control-label"> ประเภทสินค้า : </div>
