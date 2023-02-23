@@ -6,7 +6,7 @@
   error_reporting( error_reporting() & ~E_NOTICE );
 ?>
     <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-11">
       <!--
       <br>
       <a href="index.php?page=order_form_add" class="btn-info btn-lg">เพิ่ม </a>
@@ -27,17 +27,22 @@
 
 $i = 1;
 $result = mysqli_query($con, $query);
-echo ' <table id="example1" class="table table-bordered table-striped"  width="100%" >';
-  echo "<thead>";
-    echo "<tr class=''>
-    <th width='3%'  class='hidden-xs'>No.</th>
-    <th width='20%' class='hidden-xs'>Tracking</th>
-    <th width='20%' class='hidden-xs'>สินค้าที่สั่ง</th>
-    <th width='30%'>ข้อมูลลูกค้า</th>
-     <th width='20%'>ช่องทางการรับสินค้า</th>
-     <th width='10%' >ช่องทางการชำระเงิน</th>
-    </tr>";
-  echo "</thead>";
+?>
+  <table id="example1" class="table table-bordered table-striped"  width="100%" >
+  <thead>
+    <tr class=''>
+        <th width='1%'  class='hidden-xs'>ลำดับ</th>
+        <th width='10%' class='hidden-xs'>วันที่</th>
+        <th width='10%'>ข้อมูลลูกค้า</th>
+        <th width='10%' class='hidden-xs'>สินค้า</th>
+        <th width='10%' class='hidden-xs'>จำนวน</th>
+        <th width='10%' class='hidden-xs'>ราคา</th>
+        <th width='10%'>ช่องทางการรับสินค้า</th>
+        <th width='10%' >ช่องทางการชำระเงิน</th>
+    </tr>
+  </thead>
+
+  <?php
   while($row = mysqli_fetch_array($result)) {
     if($row["od_status"] == 'New'){$od_status = '⚠ รอเจ้าหน้าที่ตรวจสอบ';}
     else if($row["od_status"] == 'TakeOrder'){$od_status = '✅ รับ Order';}
@@ -54,9 +59,10 @@ echo ' <table id="example1" class="table table-bordered table-striped"  width="1
     if($row["od_delivery"] == 'storefront'){$od_delivery = 'รับเองหน้าร้าน';}
     else if($row["od_delivery"] == 'byself'){$od_delivery = 'บริการขนส่ง <br>'.$row["od_employee"];}
 
-
-  echo "<tr>";
-    echo "<td >" .$i.  "</td> ";
+?>
+    <tr>
+      <td><?php echo $i;?></td>
+<?php
 
     $od_created_at = explode(" ",$row["od_created_at"]);
     $date_od = explode("-",$od_created_at[0] );
@@ -71,20 +77,36 @@ echo ' <table id="example1" class="table table-bordered table-striped"  width="1
 			$dd=substr($dd,1,2);
 		}
 		$date=$dd ." ".$_month_name[$mm]." ".$yy+= 543;	
-    echo "<td>" .$row["od_tracking"] .'<hr>'.$date ." ". $time_od. "</td>";	
+?>
 
-    echo "<td>";
-    $sum = 0;
+      <td><?php echo $date." ".$time_od;?></td>
+      <td ><?php echo str_replace("|", "<br>",$row["od_data_buyer"] ); ?> </td>
+<?php
       $cd ="SELECT * FROM `tbl_basket`,tbl_product WHERE tbl_basket.bk_product = tbl_product.p_id AND `bk_order` = '".$row["od_tracking"] . "' ";
       $cdd = mysqli_query($con, $cd);
-      while($row_cd = mysqli_fetch_array($cdd)) {
-          echo $row_cd['p_name'].' จำนวน '.$row_cd['bk_QTY'].' ราคา '.$row_cd['bk_price'].' บาท <hr>';
-      $sum = $row_cd['bk_price']+$sum;
-    }
 
-      echo "📌 รวม ".$sum.' บาท';
-    echo "</td>";
-    echo "<td >" .str_replace("|", "<br>",$row["od_data_buyer"] )."</td> ";
+  echo "<td>";
+      while($row_cd1 = mysqli_fetch_array($cdd)) {
+          echo $row_cd1['p_name'].'<hr>';
+    }
+  echo "</td>";
+  $cdd = mysqli_query($con, $cd);
+  echo "<td>";
+    while($row_cd2 = mysqli_fetch_array($cdd)) {
+        echo $row_cd2['bk_QTY'].' <hr>'; 
+  }
+  echo "</td>";
+  $cdd = mysqli_query($con, $cd);
+  echo "<td>";
+  $sum = 0;
+    while($row_cd3 = mysqli_fetch_array($cdd)) {
+        echo $row_cd3['bk_price'].' บาท <hr>';
+      $sum = $row_cd3['bk_price']+$sum;
+  }
+  //echo "📌 รวม ".$sum.' บาท';
+  echo "</td>";
+
+   
     echo "<td >" .$od_delivery ."</td> ";
     echo "<td >" .$od_pay_type."<br> <img src='../".$row['od_pay_file']."' width='100%'></td> ";
     echo "<td>" .$od_status.'<br>'.$od_pay_status.'<br>';

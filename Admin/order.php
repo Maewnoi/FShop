@@ -20,7 +20,7 @@
         WHERE  od_status != 'Success'  AND `od_created_at` LIKE '%".$_GET['search']."%'
         ORDER BY od_created_at ASC";
         }else{
-         $query = "SELECT * FROM tbl_order WHERE  od_status != 'Success' ORDER BY od_created_at ASC";
+         $query = "SELECT * FROM tbl_order WHERE  od_status != 'Success' ORDER BY od_created_at DESC";
                                                                 
         }
         /*
@@ -119,7 +119,7 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
     echo "</td>";
     echo "<td >" .str_replace("|", "<br>",$row["od_data_buyer"] )."</td> ";
     echo "<td >" .$od_delivery ."</td> ";
-    echo "<td >" .$od_pay_type."<br> <img src='../".$row['od_pay_file']."' width='100%'></td> ";
+    echo "<td >" .$od_pay_type."<br><a href='../".$row['od_pay_file']."' target='_blank' ><img src='../".$row['od_pay_file']."' width='100%'></a></td> ";
     echo "<td>" .$od_status.'<br>'.$od_pay_status.'<br>';
     if($row["od_status"] == 'New'){
        echo "<a href='order_db.php?action=update_status_order&ID=".$row['od_id']."' class='btn btn-warning btn-xs'>รับ Order</a>";
