@@ -21,7 +21,7 @@ $p_id = $_GET["id"];
               <div class="polaroid">
                 <?php echo"<img src='./p_img/".$row['p_img']."'width='100%'>";?>
                   <div class="container_di">
-                    <cente><p><?php echo $row["p_name"];?></p></center>
+                    <center><p><?php echo $row["p_name"];?></p></center>
                   </div>
               </div>
             </div>

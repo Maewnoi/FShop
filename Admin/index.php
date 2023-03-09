@@ -94,6 +94,8 @@
           include('storefront.php');
         }else if($_GET['page'] == 'storefront_productdetail'){
           include('storefront_productdetail.php');
+        }else if($_GET['page'] == 'buyer_data'){
+          include('buyer_data.php');
         }
         else{
              
