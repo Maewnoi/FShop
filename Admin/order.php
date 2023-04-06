@@ -13,14 +13,16 @@
       <hr>
 -->
       <?php
+        if($_GET['type'] != '1'){$text = "AND `od_data_buyer` LIKE '%คำสั่งซื้อหน้าร้าน%' ";}
+        else {$text = "AND `od_data_buyer` NOT LIKE '%คำสั่งซื้อหน้าร้าน%' ";}
       if($_GET['search'] != NULL){
- 
+        
         $query = "SELECT *  FROM tbl_order 
         
-        WHERE  od_status != 'Success'  AND `od_created_at` LIKE '%".$_GET['search']."%'
+        WHERE  od_status != 'Success'  AND `od_created_at` LIKE '%".$_GET['search']."%' $text
         ORDER BY od_created_at ASC";
         }else{
-         $query = "SELECT * FROM tbl_order WHERE  od_status != 'Success' ORDER BY od_created_at DESC";
+         $query = "SELECT * FROM tbl_order WHERE  od_status != 'Success' $text ORDER BY od_created_at DESC";
                                                                 
         }
         /*
@@ -126,24 +128,30 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
     
     }
     echo "<td>" .$od_status.'<br>'.$od_pay_status.'<br>';
+
     if($row["od_status"] == 'New'){
-       echo "<a href='order_db.php?action=update_status_order&ID=".$row['od_id']."' class='btn btn-warning btn-xs'>รับ Order</a>";
+       echo "<a href='order_db.php?action=update_status_order&ID=".$row['od_id']."&pay_type=".$row["od_pay_type"]."&type=".$_GET['type']."' class='btn btn-warning btn-xs'>รับ Order</a>";
     }
     if($row["od_status"] == 'TakeOrder' && $row["od_pay_status"] == '0' ){
-      echo "<a href='order_db.php?action=update_pay_status&ID=".$row['od_id']."' class='btn btn-warning btn-xs'>ยืนยันการชำระเงิน</a>";
+      echo "<a href='order_db.php?action=update_pay_status&ID=".$row['od_id']."&type=".$_GET['type']."' class='btn btn-warning btn-xs'>ยืนยันการชำระเงิน</a>";
+      }else  if($row["od_status"] == 'TakeOrder' && $row["od_pay_status"] == '2' ){
+        
+        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Success&type=".$_GET['type']."'
+        class='btn btn-success btn-xs'>รับสินค้าแล้ว</a>";
       }
+
     if($row["od_pay_status"] == '1' && $row["od_status"] != 'Success'){
       if($row["od_delivery"] == 'storefront'){ // ถ้ามารับเองหน้าร้านจะขึ้นปุ่มรับสินค้าแล้ว
-        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=storefront'
+        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=storefront&type=".$_GET['type']."'
         class='btn btn-success btn-xs'>รับสินค้าแล้ว</a>";
       
       }else{
       if($row["od_status"] == 'Delivery'){
-        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Success'
+        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Success&type=".$_GET['type']."'
         class='btn btn-success btn-xs'>รับสินค้าแล้ว</a>";
       }else{
         
-        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Delivery'
+        echo "<a href='order_db.php?action=update_Delivery_status&ID=".$row['od_id']."&ss=Delivery&type=".$_GET['type']."'
         class='btn btn-warning btn-xs'>จัดส่ง</a>";
       }
       }

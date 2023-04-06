@@ -10,6 +10,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="index.php">หน้าหลัก <span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php?act=performance">ผลงาน  </a>
+        </li>
         
     <?php if($_SESSION["ID"] ==NULL){?>
         <li class="nav-item active">

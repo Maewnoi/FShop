@@ -33,7 +33,10 @@ $p_id = $_GET["id"];
               <hr>
               <h2>฿ <?php echo $row["p_price"];?></h2>
               <hr>
-              <?php 
+              <?php  
+              
+              if($_SESSION["ID"] !=NULL){
+
                 $q = "SELECT * FROM `tbl_basket` WHERE `bk_product` = '$p_id'
                 AND `bk_buyer` = '".$_SESSION['ID']."' AND `bk_status` = 'wait' ";
                 $qq = mysqli_query($con, $q);
@@ -55,7 +58,8 @@ $p_id = $_GET["id"];
                     <button type="submit" class="btn btn-success" name="bgadd"><i class='fas fa-shopping-cart'></i></button>
             
                   </form>
-              <?php } ?>
+              <?php }
+            } ?>
 
                 
             </div>

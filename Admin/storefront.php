@@ -1,3 +1,5 @@
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <br>
 <h3>ตะกร้าสินค้าของคุณ <?php echo $_SESSION['name'];?></h3>
 <hr>
@@ -23,7 +25,6 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
   echo "<thead>";
     echo "<tr class=''>
       <th width='3%'  class='hidden-xs'>No.</th>
-      <th width='20%' class='hidden-xs'>รายการ</th>
        <th width='20%'>ชื่อสินค้า</th>
        <th width='10%' >ราคา</th>
       <th width='10%'>จำนวน</th>
@@ -35,7 +36,6 @@ echo ' <table id="example1" class="table table-bordered table-striped">';
   while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
     echo "<td >" .$i.  "</td> ";
-    echo "<td ><img src='./p_img/".$row['p_img']."' width='50%'>"."</td>";
     echo "<td> ชื่อ: " .$row["p_name"] . "</td>";
     echo "<td >" .$row["p_price"] ."</td> ";
     echo "<td >" .$row["bk_QTY"] ."</td> ";
@@ -133,10 +133,34 @@ if($_GET['search'] != NULL){
             height="250px" width="auto" alt="Card image cap">
         </div>
         <div class="card-body">
-            <h6 class="card-title"><?php echo$row_pro['p_name'] ?></h6>
-            <p > ราคา : <?php echo$row_pro['p_price'];?> </p>
-            <center><a href="index.php?page=storefront_productdetail&type_id=<?php echo $type_id;?>&id=<?php echo $row_pro['p_id'];?>" class="btn btn-primary">รายละเอียด</a></center>
-        </div>   
+            <h6 class="card-title"><?php echo $row_pro['p_name'] ?></h6>
+            <p > ราคา : <?php echo $row_pro['p_price'];?> </p>
+            
+            <?php 
+                $q = "SELECT * FROM `tbl_basket` WHERE `bk_product` = '".$row_pro["p_id"]."'
+                AND `bk_buyer` = '".$_SESSION['ID']."' AND `bk_status` = 'wait' ";
+                $qq = mysqli_query($con, $q);
+                $qqq = mysqli_num_rows($qq);
+
+                if($qqq >= '1'){ //ถ้าเพิ่มลงตะกร้าแล้วจะเป็นปุ่มลบออกจากตะกร้า
+              ?>
+              <form  name="addBuy" action="basket_add.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
+              <input type="hidden"  name="p_id" value="<?php echo $row_pro["p_id"];?>" />
+              <button type="submit" class="btn btn-danger" name="bgdelete">ลบออกจากตะกร้า</button>
+      
+            </form>
+                  
+              <?php }else{ //ถ้ายังไม่เพิ่มลงตะกร้าแล้วจะเป็นปุ่มเพิ่มลงตะกร้า?>
+                  <form  name="addBuy" action="basket_add.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
+                    <input type="hidden"  name="p_id" value="<?php echo $row_pro["p_id"];?>" />
+                    <input type="hidden"  name="p_price" value="<?php echo $row_pro["p_price"];?>" />
+                    <input type="number" min='1' name="p_QTY" value="1" style="width: 58px;"/>
+                    <button type="submit" class="btn btn-success" name="bgadd"><i class='fas fa-shopping-cart'></i></button>
+            
+                  </form>
+              <?php } ?>
+         
+            </div>   
     </div>
   <?php }?>
 </div>

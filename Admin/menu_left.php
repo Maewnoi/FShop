@@ -63,16 +63,27 @@ if($_GET['page'] == 'storefront' || $_GET['page'] == 'storefront_form_add' || $_
 <?php }else{ ?>
 <a href="index.php?page=storefront" class="list-group-item list-group-item-action">ขายหน้าร้าน</a>
 <?php }
-$q = "SELECT COUNT(*)as num FROM `tbl_order` WHERE `od_status` = 'NEW'";
+$q = "SELECT COUNT(*)as num FROM `tbl_order` WHERE `od_status` = 'NEW' AND `od_data_buyer` NOT LIKE '%คำสั่งซื้อหน้าร้าน%'";
 
  $qq = mysqli_query($con, $q);
  $qqq = mysqli_fetch_array($qq);
 
 
-if($_GET['page'] == 'order' || $_GET['page'] == 'order_form_add' || $_GET['page'] == 'order_form_edit'){?>
-		<a href="index.php?page=order" class="list-group-item list-group-item">จัดการรับคำสั่งซื้อ <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
+if($_GET['type'] == '1' ){ ?>
+
+		<a href="index.php?page=order&type=1" class="list-group-item list-group-item">จัดการรับคำสั่งซื้อ <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
 <?php }else{ ?>
-	<a href="index.php?page=order" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
+	<a href="index.php?page=order&type=1" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อ <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
+<?php }
+
+$q = "SELECT COUNT(*)as num FROM `tbl_order` WHERE `od_status` = 'NEW' AND `od_data_buyer` LIKE '%คำสั่งซื้อหน้าร้าน%'";
+
+ $qq = mysqli_query($con, $q);
+ $qqq = mysqli_fetch_array($qq);
+if($_GET['type'] == 'คำสั่งซื้อหน้าร้าน' ){?>
+		<a href="index.php?page=order&type=คำสั่งซื้อหน้าร้าน" class="list-group-item list-group-item">จัดการรับคำสั่งซื้อหน้าร้าน <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
+<?php }else{ ?>
+	<a href="index.php?page=order&type=คำสั่งซื้อหน้าร้าน" class="list-group-item list-group-item-action">จัดการรับคำสั่งซื้อหน้าร้าน <span class="badge badge-danger"><?php echo $qqq['num'];?></span></a>
 <?php }
 
 if($_GET['page'] == 'htstore'){?>

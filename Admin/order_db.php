@@ -5,13 +5,15 @@
   error_reporting( error_reporting() & ~E_NOTICE );
 
   if($_GET['action'] == 'update_status_order' ){
-    $query = "UPDATE `tbl_order` SET `od_status` = 'TakeOrder' ,od_admin_id = '".$_SESSION['ID']."' WHERE `od_id` = '".$_GET['ID']."' ";
+    if($_GET['pay_type'] == 'transfer'){ $pay_status = ", `od_pay_status` = '2' "; }
+
+    $query = "UPDATE `tbl_order` SET `od_status` = 'TakeOrder' ,od_admin_id = '".$_SESSION['ID']."' $pay_status WHERE `od_id` = '".$_GET['ID']."' ";
     $result = mysqli_query($con, $query);
    
     if($result){
       echo "<script>";
       echo "alert('รับออเดอร์สำเร็จ');";
-      echo "window.location ='index.php?page=order'; ";
+      echo "window.location ='index.php?page=order&type=".$_GET['type']."'; ";
       echo "</script>";
     } else {
       
@@ -27,7 +29,7 @@
   if($result){
     echo "<script>";
     echo "alert('ยืนยันการชำระเงินสำเร็จ');";
-    echo "window.location ='index.php?page=order'; ";
+    echo "window.location ='index.php?page=order&type=".$_GET['type']."'; ";
     echo "</script>";
   } else {
     
@@ -48,7 +50,7 @@ else  if($_GET['action'] == 'update_Delivery_status' ){
   if($result){
     echo "<script>";
     echo "alert('สำเร็จ');";
-    echo "window.location ='index.php?page=order'; ";
+    echo "window.location ='index.php?page=order&type=".$_GET['type']."'; ";
     echo "</script>";
   } else {
     

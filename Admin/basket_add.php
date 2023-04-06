@@ -14,7 +14,7 @@ $bk_sum = $_POST['p_price']*$_POST['p_QTY'];
 
 
     if($result){
-        Header("Location: index.php?page=productdetail&type_id=&id=".$_POST['p_id']);
+        Header("Location: index.php?page=storefront");
     }else{
         echo "<script>";
             echo "alert(\" ผิดพลาด \");"; 

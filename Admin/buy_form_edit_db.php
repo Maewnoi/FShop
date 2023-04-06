@@ -9,7 +9,8 @@ include('condb.php');  //ไฟล์เชื่อมต่อกับ databa
 
 //ทำการปรับปรุงข้อมูลที่จะแก้ไขลงใน database 
   //แก้ไขรายการที่สั่งซื้อ
-for ($x = 1; $x <= $_POST['numi']; $x++) {
+
+  for ($x = 1; $x <= $_POST['numi']; $x++) {
   if($_POST['b_QTY'.$x] != null && $_POST['b_QTY'.$x] != '0' ){ 
     //  echo $_POST['st_name'.$x].'//'.$_POST['b_QTY'.$x].'<br>';
       $sql1 = "UPDATE `tbl_buylist` SET `b_id`='".$_POST['b_id'.$x]."',
@@ -24,6 +25,7 @@ for ($x = 1; $x <= $_POST['numi']; $x++) {
        $result1 = mysqli_query($con, $sql1);
     }
 }
+
 //cdhw-ใบสั่งซื้อ
 $sql ="UPDATE `tbl_buy` SET `buy_price`='".number_format($pp, 2, '.', '')."',`buy_status`='".$_POST['b_status']."'
  WHERE `buy_id` = '$buy_id' ";

@@ -60,7 +60,7 @@
                     echo "<td><a href='index.php?page=stock_form_edit&ID=$row[0]' class='btn btn-warning btn-xs'>แก้ไข</a></td> ";
                     
                     //ลบข้อมูล
-                    echo "<td><a href='withdraw_del_db.php?ID=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\" class='btn btn-danger btn-xs'>ลบ</a></td> ";
+                    echo "<td><a href='stock_form_delete_db.php?ID=".$row["st_id"]."' onclick=\"return confirm('Do you want to delete this record? !!!')\" class='btn btn-danger btn-xs'>ลบ</a></td> ";
                   echo "</tr>";
                  $i++; }
                 echo "</table>";

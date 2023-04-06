@@ -15,7 +15,7 @@ $row = mysqli_fetch_array($result);
   บันทึกโดย : <?php echo $row['a_name'];?>
   <hr>
       <form  name="addBuy" action="buy_form_edit_db.php" method="POST" enctype="multipart/form-data"  class="form-horizontal">
-            <input type="hidden"  name="buy_id" value="<?php echo $row['buy_id']; ?>"  />
+            <input type="hidden"  name="buy_id" value="<?php echo $_GET['ID']; ?>"  />
                  
 <?php
 
@@ -42,8 +42,8 @@ $i = 1;
 <td><center><?php echo $row_pro['st_QTY'];?></center></td>
 <td><input type="number"  name="b_QTY<?php echo $i;?>" value='<?php echo $row_pro['b_QTY'];?>' class="form-control"/></td>
 <td><input type="number"  name="b_price<?php echo $i;?>" value='<?php echo $row_pro['b_price'];?>'  class="form-control"/></td>
-<td><?php if($row_pro['b_received'] == 'Y'){ echo "<a href='index.php?page=Buy_form_edit&ID=' class='btn btn-success btn-xs'>รับวัตถุดิบแล้ว</a>";}
-          else if($row_pro['b_received'] == 'N'){ echo "<a href='index.php?page=Buy_form_edit&ID=' class='btn btn-warning btn-xs'>ยังไม่รับวัตถุดิบ</a>";}?></td>
+<td><?php if($row_pro['b_received'] == 'Y'){ echo "<a href='#' class='btn btn-success btn-xs'>รับวัตถุดิบแล้ว</a>";}
+          else if($row_pro['b_received'] == 'N'){ echo "<a href='Buy_form_edit_add.php?bID=".$row_pro['b_id']."&ID=".$_GET['ID']."&qty=".$row_pro['b_QTY']."&b_stid=".$row_pro['b_st_id']."' class='btn btn-warning btn-xs'>ยังไม่รับวัตถุดิบ</a>";}?></td>
 </tr>
 <input type="hidden" name="numi" value='<?php echo $i;?>'/>
 <?php $i++;}?>
@@ -54,7 +54,7 @@ $i = 1;
           <div class="col-sm-2">สถานะ</div>
           
           <div class="col-sm-3">
-            <input type="radio" id="b_status" name="b_status" value="ํY" <?php if($row['buy_status'] == 'Y'){ echo "checked";}?>> ชำระแล้ว <br>
+            <input type="radio" id="b_status" name="b_status" value="Y" <?php if($row['buy_status'] == 'Y'){ echo "checked";}?>> ชำระแล้ว <br>
             <input type="radio" id="b_status" name="b_status" value="N" <?php if($row['buy_status'] == 'N'){ echo "checked";}?>> ยังไม่ชำระ
 
           </div>

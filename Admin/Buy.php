@@ -14,10 +14,7 @@
 
 if($_GET['search'] != NULL){
  
-  $query = "SELECT *  FROM tbl_buy 
-  
-  WHERE `buy_recorder` LIKE '%".$_GET['search']."%'
-  ORDER BY buy_id ASC";
+  $query = "SELECT *  FROM tbl_buy  WHERE `buy_recorder` LIKE '%".$_GET['search']."%' ORDER BY buy_id ASC";
   }else{
  $query = "SELECT *  FROM tbl_buy ORDER BY buy_id ASC";
                                              
@@ -40,7 +37,7 @@ if($_GET['search'] != NULL){
           </tr>";
       
                   while($row = mysqli_fetch_array($result)) {
-                      if($row["b_status"] == 'Y'){$text = 'ชำระแล้ว';}
+                      if($row["buy_status"] == 'Y'){$text = 'ชำระแล้ว';}
                       else{$text = 'ยังไม่ชำระ';}
 
 
